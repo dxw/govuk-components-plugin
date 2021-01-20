@@ -1,0 +1,24 @@
+{
+  "config": {
+    "platform": {
+      "php": "7.2.34"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "MyPlugin\\": "app/"
+    }
+  },
+  "scripts": {
+    "post-update-cmd": "vendor/bin/phar-install"
+  },
+  "require-dev": {
+    "dxw/phar-install": "^1.1",
+    "friendsofphp/php-cs-fixer": "^2.15",
+    "kahlan/kahlan": "^5.0",
+    "dxw/php-cs-fixer-config": "^1.0"
+  },
+  "require": {
+    "dxw/iguana": "^1.1"
+  }
+}
