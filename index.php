@@ -1,7 +1,7 @@
 <?php
 /*
-Plugin Name: My Plugin
-Description: TODO
+Plugin Name: GOV.UK Components
+Description: Adds components from the GOV.UK Frontend to the block editor
 Version: 0.1.0
 Author: dxw
 Author URI: https://www.dxw.com

@@ -6,7 +6,7 @@
   },
   "autoload": {
     "psr-4": {
-      "MyPlugin\\": "app/"
+      "GovukComponents\\": "app/"
     }
   },
   "scripts": {
