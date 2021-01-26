@@ -44,7 +44,7 @@ describe(\GovukComponents\Blocks\Details::class, function () {
             allow('dirname')->toBeCalled()->andReturn('/path/to/wp-content/plugins/govuk-components-plugin');
             expect('dirname')->toBeCalled()->once()->with('/path/to/wp-content/plugins/govuk-components-plugin/app/Blocks', 2);
             allow('load_template')->toBeCalled();
-            expect('load_template')->toBeCalled()->once()->with('/path/to/wp-content/plugins/govuk-components-plugin' . $this->details->templatePath);
+            expect('load_template')->toBeCalled()->once()->with('/path/to/wp-content/plugins/govuk-components-plugin' . $this->details->templatePath, false);
             $this->details->render();
         });
     });
