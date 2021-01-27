@@ -2,11 +2,17 @@
 
 namespace GovukComponents\Blocks;
 
-class InsetText implements \Dxw\Iguana\Registerable
+class InsetText implements iBlock
 {
     public $templatePath = '/templates/inset_text.php';
 
-    public function register()
+    protected const DISPLAY_NAME = 'Inset Text';
+
+    /* NOTE: changing this could affect which */
+    /* components a user has activated */
+    protected const OPTION_NAME = 'inset_text';
+
+    public function init()
     {
         add_action('init', [$this, 'registerBlock']);
         add_action('init', [$this, 'registerFields']);
@@ -80,5 +86,15 @@ class InsetText implements \Dxw\Iguana\Registerable
     public function render()
     {
         load_template(dirname(plugin_dir_path(__FILE__), 2) . $this->templatePath, false);
+    }
+
+    public function getDisplayName() : string
+    {
+        return self::DISPLAY_NAME;
+    }
+
+    public function getOptionName(): string
+    {
+        return self::OPTION_NAME;
     }
 }

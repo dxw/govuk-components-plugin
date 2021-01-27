@@ -7,16 +7,16 @@ describe(\GovukComponents\Blocks\Accordion::class, function () {
         $this->accordion = new \GovukComponents\Blocks\Accordion();
     });
 
-    it('is registerable', function () {
-        expect($this->accordion)->toBeAnInstanceOf(\Dxw\Iguana\Registerable::class);
+    it('implements iBlock', function () {
+        expect($this->accordion)->toBeAnInstanceOf(\GovukComponents\Blocks\iBlock::class);
     });
 
-    describe('->register()', function () {
+    describe('->init()', function () {
         it('adds the actions', function () {
             allow('add_action')->toBeCalled();
             expect('add_action')->toBeCalled()->once()->with('init', [$this->accordion, 'registerBlock']);
             expect('add_action')->toBeCalled()->once()->with('init', [$this->accordion, 'registerFields']);
-            $this->accordion->register();
+            $this->accordion->init();
         });
     });
 
@@ -59,6 +59,18 @@ describe(\GovukComponents\Blocks\Accordion::class, function () {
                 'govuk-components-accordion-count' => 1
             ]);
             $this->accordion->render();
+        });
+    });
+
+    describe('->getOptionName()', function () {
+        it('returns the option name', function () {
+            expect($this->accordion->getOptionName())->toEqual('accordion');
+        });
+    });
+
+    describe('->getDisplayName()', function () {
+        it('returns a string', function () {
+            expect($this->accordion->getDisplayName())->toBeA('string');
         });
     });
 });

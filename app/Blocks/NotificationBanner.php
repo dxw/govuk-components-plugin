@@ -2,13 +2,19 @@
 
 namespace GovukComponents\Blocks;
 
-class NotificationBanner implements \Dxw\Iguana\Registerable
+class NotificationBanner implements iBlock
 {
     public $templatePath = '/templates/notification_banner.php';
 
     public $count = 0;
 
-    public function register()
+    protected const DISPLAY_NAME = 'Notification Banner';
+
+    /* NOTE: changing this could affect which */
+    /* components a user has activated */
+    protected const OPTION_NAME = 'notification_banner';
+
+    public function init()
     {
         add_action('init', [$this, 'registerBlock']);
         add_action('init', [$this, 'registerFields']);
@@ -102,5 +108,15 @@ class NotificationBanner implements \Dxw\Iguana\Registerable
         load_template(dirname(plugin_dir_path(__FILE__), 2) . $this->templatePath, false, [
             'govuk-components-notification-banner-count' => $this->count
         ]);
+    }
+
+    public function getDisplayName() : string
+    {
+        return self::DISPLAY_NAME;
+    }
+
+    public function getOptionName(): string
+    {
+        return self::OPTION_NAME;
     }
 }
