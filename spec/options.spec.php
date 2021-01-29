@@ -59,18 +59,37 @@ describe(\GovukComponents\Options::class, function () {
     });
 
     describe('->apply()', function () {
-        it('calls the BlockController with a list of the plugins to activate', function () {
-            allow('get_field')->toBeCalled()->andReturn([
-                'enabled_block_option_name_1',
-                'enabled_block_option_name_2'
-            ]);
-            expect('get_field')->toBeCalled()->once()->with('govuk_components_enable_component_blocks', 'option');
-            allow($this->blockController)->toReceive('activateBlocks');
-            expect($this->blockController)->toReceive('activateBlocks')->once()->with([
-                'enabled_block_option_name_1',
-                'enabled_block_option_name_2'
-            ]);
-            $this->options->apply();
+        context('the options have been saved', function () {
+            it('calls the BlockController with a list of the plugins to activate', function () {
+                allow('get_field')->toBeCalled()->andReturn([
+                    'enabled_block_option_name_1',
+                    'enabled_block_option_name_2'
+                ]);
+                expect('get_field')->toBeCalled()->once()->with('govuk_components_enable_component_blocks', 'option');
+                allow($this->blockController)->toReceive('activateBlocks');
+                expect($this->blockController)->toReceive('activateBlocks')->once()->with([
+                    'enabled_block_option_name_1',
+                    'enabled_block_option_name_2'
+                ]);
+                $this->options->apply();
+            });
+        });
+        context('the options have not been saved (so get_field returns null)', function () {
+            it('returns the list of default block options', function () {
+                allow('get_field')->toBeCalled()->andReturn(null);
+                expect('get_field')->toBeCalled()->once()->with('govuk_components_enable_component_blocks', 'option');
+                allow($this->blockController)->toReceive('getDefaultBlockOptions')->andReturn([
+                    0 => 'default_block_1',
+                    1 =>'default_block_2'
+                ]);
+                expect($this->blockController)->toReceive('getDefaultBlockOptions')->once();
+                allow($this->blockController)->toReceive('activateBlocks');
+                expect($this->blockController)->toReceive('activateBlocks')->once()->with([
+                    0 => 'default_block_1',
+                    1 =>'default_block_2'
+                ]);
+                $this->options->apply();
+            });
         });
     });
 });

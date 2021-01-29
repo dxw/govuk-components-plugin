@@ -84,6 +84,9 @@ class Options implements \Dxw\Iguana\Registerable
     public function apply()
     {
         $activeBlocks = get_field('govuk_components_enable_component_blocks', 'option');
+        if (is_null($activeBlocks)) {
+            $activeBlocks = $this->blockController->getDefaultBlockOptions();
+        }
         $this->blockController->activateBlocks($activeBlocks);
     }
 }
