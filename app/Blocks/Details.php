@@ -2,11 +2,17 @@
 
 namespace GovukComponents\Blocks;
 
-class Details implements \Dxw\Iguana\Registerable
+class Details implements iBlock
 {
+    protected const DISPLAY_NAME = 'Details';
+
+    /* NOTE: changing this could affect which */
+    /* components a user has activated */
+    protected const OPTION_NAME = 'details';
+
     public $templatePath = '/templates/details.php';
 
-    public function register()
+    public function init()
     {
         add_action('init', [$this, 'registerBlock']);
         add_action('init', [$this, 'registerFields']);
@@ -99,5 +105,15 @@ class Details implements \Dxw\Iguana\Registerable
     public function render()
     {
         load_template(dirname(plugin_dir_path(__FILE__), 2) . $this->templatePath, false);
+    }
+
+    public function getOptionName() : string
+    {
+        return self::OPTION_NAME;
+    }
+
+    public function getDisplayName(): string
+    {
+        return self::DISPLAY_NAME;
     }
 }

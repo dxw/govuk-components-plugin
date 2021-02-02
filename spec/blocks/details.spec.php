@@ -7,16 +7,16 @@ describe(\GovukComponents\Blocks\Details::class, function () {
         $this->details = new \GovukComponents\Blocks\Details();
     });
 
-    it('is registerable', function () {
-        expect($this->details)->toBeAnInstanceOf(\Dxw\Iguana\Registerable::class);
+    it('implements iBlock', function () {
+        expect($this->details)->toBeAnInstanceOf(\GovukComponents\Blocks\iBlock::class);
     });
 
-    describe('->register()', function () {
+    describe('->init()', function () {
         it('adds the actions', function () {
             allow('add_action')->toBeCalled();
             expect('add_action')->toBeCalled()->once()->with('init', [$this->details, 'registerBlock']);
             expect('add_action')->toBeCalled()->once()->with('init', [$this->details, 'registerFields']);
-            $this->details->register();
+            $this->details->init();
         });
     });
 
@@ -46,6 +46,18 @@ describe(\GovukComponents\Blocks\Details::class, function () {
             allow('load_template')->toBeCalled();
             expect('load_template')->toBeCalled()->once()->with('/path/to/wp-content/plugins/govuk-components-plugin' . $this->details->templatePath, false);
             $this->details->render();
+        });
+    });
+
+    describe('->getOptionName()', function () {
+        it('returns the option name', function () {
+            expect($this->details->getOptionName())->toEqual('details');
+        });
+    });
+
+    describe('->getDisplayName()', function () {
+        it('returns a string', function () {
+            expect($this->details->getDisplayName())->toBeA('string');
         });
     });
 });

@@ -7,16 +7,16 @@ describe(\GovukComponents\Blocks\WarningText::class, function () {
         $this->warningText = new \GovukComponents\Blocks\WarningText();
     });
 
-    it('is registerable', function () {
-        expect($this->warningText)->toBeAnInstanceOf(\Dxw\Iguana\Registerable::class);
+    it('implements iBlock', function () {
+        expect($this->warningText)->toBeAnInstanceOf(\GovukComponents\Blocks\iBlock::class);
     });
 
-    describe('->register()', function () {
+    describe('->init()', function () {
         it('adds the actions', function () {
             allow('add_action')->toBeCalled();
             expect('add_action')->toBeCalled()->once()->with('init', [$this->warningText, 'registerBlock']);
             expect('add_action')->toBeCalled()->once()->with('init', [$this->warningText, 'registerFields']);
-            $this->warningText->register();
+            $this->warningText->init();
         });
     });
 
@@ -46,6 +46,18 @@ describe(\GovukComponents\Blocks\WarningText::class, function () {
             allow('load_template')->toBeCalled();
             expect('load_template')->toBeCalled()->once()->with('/path/to/wp-content/plugins/govuk-components-plugin' . $this->warningText->templatePath, false);
             $this->warningText->render();
+        });
+    });
+
+    describe('->getOptionName()', function () {
+        it('returns the option name', function () {
+            expect($this->warningText->getOptionName())->toEqual('warning_text');
+        });
+    });
+
+    describe('->getDisplayName()', function () {
+        it('returns a string', function () {
+            expect($this->warningText->getDisplayName())->toBeA('string');
         });
     });
 });

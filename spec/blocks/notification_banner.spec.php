@@ -7,16 +7,16 @@ describe(\GovukComponents\Blocks\NotificationBanner::class, function () {
         $this->notificationBanner = new \GovukComponents\Blocks\NotificationBanner();
     });
 
-    it('is registerable', function () {
-        expect($this->notificationBanner)->toBeAnInstanceOf(\Dxw\Iguana\Registerable::class);
+    it('implements iBlock', function () {
+        expect($this->notificationBanner)->toBeAnInstanceOf(GovukComponents\Blocks\iBlock::class);
     });
 
-    describe('->register()', function () {
+    describe('->init()', function () {
         it('adds the actions', function () {
             allow('add_action')->toBeCalled();
             expect('add_action')->toBeCalled()->once()->with('init', [$this->notificationBanner, 'registerBlock']);
             expect('add_action')->toBeCalled()->once()->with('init', [$this->notificationBanner, 'registerFields']);
-            $this->notificationBanner->register();
+            $this->notificationBanner->init();
         });
     });
 
@@ -58,6 +58,18 @@ describe(\GovukComponents\Blocks\NotificationBanner::class, function () {
                 'govuk-components-notification-banner-count' => 1
             ]);
             $this->notificationBanner->render();
+        });
+    });
+
+    describe('->getOptionName()', function () {
+        it('returns the option name', function () {
+            expect($this->notificationBanner->getOptionName())->toEqual('notification_banner');
+        });
+    });
+
+    describe('->getDisplayName()', function () {
+        it('returns a string', function () {
+            expect($this->notificationBanner->getDisplayName())->toBeA('string');
         });
     });
 });
