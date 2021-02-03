@@ -28,7 +28,7 @@ class NotificationBanner implements iBlock
                 'title'             => 'Notification Banner',
                 'render_callback'   => [$this, 'render'],
                 'mode' => 'auto',
-                'category'          => 'formatting',
+                'category'          => 'govuk-custom',
                 'icon'              => 'info',
                 'keywords'          => [ 'notification', 'banner' ],
             ]);

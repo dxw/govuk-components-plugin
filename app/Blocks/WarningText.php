@@ -26,7 +26,7 @@ class WarningText implements iBlock
                 'title'             => 'Warning Text',
                 'render_callback'   => [$this, 'render'],
                 'mode' => 'auto',
-                'category'          => 'formatting',
+                'category'          => 'govuk-custom',
                 'icon'              => 'warning',
                 'keywords'          => [ 'warning', 'text', 'notification' ],
             ]);
