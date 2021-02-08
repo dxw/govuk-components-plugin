@@ -26,7 +26,7 @@ class Details implements iBlock
                 'title'             => 'Details',
                 'render_callback'   => [$this, 'render'],
                 'mode' => 'auto',
-                'category'          => 'formatting',
+                'category'          => 'govuk-custom',
                 'icon'              => 'arrow-down',
                 'keywords'          => [ 'details', 'accordion' ],
             ]);

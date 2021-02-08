@@ -26,7 +26,7 @@ class InsetText implements iBlock
                 'title'             => 'Inset Text',
                 'render_callback'   => [$this, 'render'],
                 'mode' => 'auto',
-                'category'          => 'formatting',
+                'category'          => 'govuk-custom',
                 'icon'              => 'align-pull-left',
                 'keywords'          => [ 'inset', 'highlight', 'text', 'indent' ],
             ]);

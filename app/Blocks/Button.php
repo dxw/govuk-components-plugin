@@ -27,7 +27,7 @@ class Button implements iBlock
                 'title'           => 'Button',
                 'description'     => 'Button',
                 'render_callback' => [$this, 'render'],
-                'category'        => 'formatting',
+                'category'        => 'govuk-custom',
                 'icon'            => 'button',
                 'keywords'        => ['button', 'link'],
                 'mode'            => 'auto',

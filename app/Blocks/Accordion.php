@@ -29,7 +29,7 @@ class Accordion implements iBlock
                 'title'             => 'Accordion',
                 'render_callback'   => [$this, 'render'],
                 'mode' => 'auto',
-                'category'          => 'formatting',
+                'category'          => 'govuk-custom',
                 'icon'              => 'list-view',
                 'keywords'          => [ 'accordion' ],
             ]);
