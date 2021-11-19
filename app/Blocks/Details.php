@@ -26,6 +26,7 @@ class Details implements iBlock
             acf_register_block_type([
                 'name'              => 'details',
                 'title'             => 'Details',
+                'description' => 'Make a page easier to scan by letting users reveal more detailed information only if they need it.',
                 'render_callback'   => [$this, 'render'],
                 'mode' => 'auto',
                 'category'          => 'govuk-custom',

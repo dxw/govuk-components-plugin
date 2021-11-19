@@ -25,7 +25,7 @@ class Button implements iBlock
             acf_register_block_type([
                 'name'            => 'button',
                 'title'           => 'Button',
-                'description'     => 'Button',
+                'description'     => 'Help users carry out an action like starting an application or saving their information.',
                 'render_callback' => [$this, 'render'],
                 'category'        => 'govuk-custom',
                 'icon'            => 'button',

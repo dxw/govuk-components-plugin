@@ -24,6 +24,7 @@ class InsetText implements iBlock
             acf_register_block_type([
                 'name'              => 'inset_text',
                 'title'             => 'Inset Text',
+                'description' => 'Use inset and a highlight bar to differentiate a block of text from the content that surrounds it',
                 'render_callback'   => [$this, 'render'],
                 'mode' => 'auto',
                 'category'          => 'govuk-custom',

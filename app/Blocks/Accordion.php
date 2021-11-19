@@ -27,6 +27,7 @@ class Accordion implements iBlock
             acf_register_block_type([
                 'name'              => 'accordion',
                 'title'             => 'Accordion',
+                'description' => 'Let users show and hide sections of related content on a page.',
                 'render_callback'   => [$this, 'render'],
                 'mode' => 'auto',
                 'category'          => 'govuk-custom',

@@ -24,6 +24,7 @@ class WarningText implements iBlock
             acf_register_block_type([
                 'name'              => 'warning_text',
                 'title'             => 'Warning Text',
+                'description' => 'Warn users about something important, such as consequences of an action.',
                 'render_callback'   => [$this, 'render'],
                 'mode' => 'auto',
                 'category'          => 'govuk-custom',
