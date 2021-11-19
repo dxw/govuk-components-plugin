@@ -31,6 +31,16 @@ class Button implements iBlock
                 'icon'            => 'button',
                 'keywords'        => ['button', 'link'],
                 'mode'            => 'auto',
+                'example' => [
+                    'attributes' => [
+                        'mode' => 'preview',
+                        'data' => [
+                            'text' => 'Press this button',
+                            'button_link' => '#',
+                            'style' => ''
+                        ]
+                    ]
+                ]
             ]);
         }
     }

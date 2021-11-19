@@ -29,6 +29,14 @@ class WarningText implements iBlock
                 'category'          => 'govuk-custom',
                 'icon'              => 'warning',
                 'keywords'          => [ 'warning', 'text', 'notification' ],
+                'example' => [
+                    'attributes' => [
+                        'mode' => 'preview',
+                        'data' => [
+                            'warning_text_text' => '<img src="' . esc_url(plugins_url('/examples/warning_text.png', __FILE__)) . '" >'
+                        ]
+                    ]
+                ]
             ]);
         }
     }

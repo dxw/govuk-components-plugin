@@ -29,6 +29,14 @@ class InsetText implements iBlock
                 'category'          => 'govuk-custom',
                 'icon'              => 'align-pull-left',
                 'keywords'          => [ 'inset', 'highlight', 'text', 'indent' ],
+                'example' => [
+                    'attributes' => [
+                        'mode' => 'preview',
+                        'data' => [
+                            'inset_text_text' => '<p style="border-left: 10px solid #b1b4b6; padding: 15px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque magna justo, rhoncus vel vestibulum nec, condimentum sit amet nisi.</p>'
+                        ]
+                    ]
+                ]
             ]);
         }
     }

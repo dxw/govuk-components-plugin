@@ -23,6 +23,8 @@ describe(\GovukComponents\Blocks\NotificationBanner::class, function () {
     describe('->registerBlock', function () {
         it('registers the block', function () {
             allow('function_exists')->toBeCalled()->andReturn(true);
+            allow('esc_url')->toBeCalled();
+            allow('plugins_url')->toBeCalled();
             allow('acf_register_block_type')->toBeCalled();
             expect('acf_register_block_type')->toBeCalled()->once()->with(Arg::toBeAn('array'));
             $this->notificationBanner->registerBlock();

@@ -31,6 +31,14 @@ class NotificationBanner implements iBlock
                 'category'          => 'govuk-custom',
                 'icon'              => 'info',
                 'keywords'          => [ 'notification', 'banner' ],
+                'example' => [
+                    'attributes' => [
+                        'mode' => 'preview',
+                        'data' => [
+                            'notification_banner_text' => '<img src="' . esc_url(plugins_url('/examples/notification_banner.png', __FILE__)) . '" >'
+                        ]
+                    ]
+                ]
             ]);
         }
     }
