@@ -24,11 +24,20 @@ class InsetText implements iBlock
             acf_register_block_type([
                 'name'              => 'inset_text',
                 'title'             => 'Inset Text',
+                'description' => 'Use inset and a highlight bar to differentiate a block of text from the content that surrounds it',
                 'render_callback'   => [$this, 'render'],
                 'mode' => 'auto',
                 'category'          => 'govuk-custom',
                 'icon'              => 'align-pull-left',
                 'keywords'          => [ 'inset', 'highlight', 'text', 'indent' ],
+                'example' => [
+                    'attributes' => [
+                        'mode' => 'preview',
+                        'data' => [
+                            'inset_text_text' => '<p style="border-left: 10px solid #b1b4b6; padding: 15px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque magna justo, rhoncus vel vestibulum nec, condimentum sit amet nisi.</p>'
+                        ]
+                    ]
+                ]
             ]);
         }
     }

@@ -2,6 +2,8 @@
 
 namespace GovukComponents\Blocks;
 
+use function PHPSTORM_META\map;
+
 class Details implements iBlock
 {
     protected const DISPLAY_NAME = 'Details';
@@ -24,11 +26,21 @@ class Details implements iBlock
             acf_register_block_type([
                 'name'              => 'details',
                 'title'             => 'Details',
+                'description' => 'Make a page easier to scan by letting users reveal more detailed information only if they need it.',
                 'render_callback'   => [$this, 'render'],
                 'mode' => 'auto',
                 'category'          => 'govuk-custom',
                 'icon'              => 'arrow-down',
                 'keywords'          => [ 'details', 'accordion' ],
+                'example' => [
+                    'attributes' => [
+                        'mode' => 'preview',
+                        'data' => [
+                            'details_summary' => 'The summary heading',
+                            'details_text' => 'The main text.'
+                        ]
+                    ]
+                ]
             ]);
         }
     }

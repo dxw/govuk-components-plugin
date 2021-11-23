@@ -27,11 +27,25 @@ class Accordion implements iBlock
             acf_register_block_type([
                 'name'              => 'accordion',
                 'title'             => 'Accordion',
+                'description' => 'Let users show and hide sections of related content on a page.',
                 'render_callback'   => [$this, 'render'],
                 'mode' => 'auto',
                 'category'          => 'govuk-custom',
                 'icon'              => 'list-view',
                 'keywords'          => [ 'accordion' ],
+                'example' => [
+                    'attributes' => [
+                        'mode' => 'preview',
+                        'data' => [
+                            "accordion_sections_0_accordion_section_heading" => "",
+                            "_accordion_sections_0_accordion_section_heading" => "field_60081b8cdb418",
+                            "accordion_sections_0_accordion_section_content" => '<img src="' . esc_url(plugins_url('/examples/accordion.png', __FILE__)) . '" >',
+                            "_accordion_sections_0_accordion_section_content" => "field_60081b94db419",
+                            "accordion_sections"=> 1,
+                            "_accordion_sections" => "field_600819addb417"
+                        ]
+                    ]
+                ]
             ]);
         }
     }

@@ -26,11 +26,20 @@ class NotificationBanner implements iBlock
             acf_register_block_type([
                 'name'              => 'notification_banner',
                 'title'             => 'Notification Banner',
+                'description' => 'Tell the user about something they need to know about, but that’s not directly related to the page content.',
                 'render_callback'   => [$this, 'render'],
                 'mode' => 'auto',
                 'category'          => 'govuk-custom',
                 'icon'              => 'info',
                 'keywords'          => [ 'notification', 'banner' ],
+                'example' => [
+                    'attributes' => [
+                        'mode' => 'preview',
+                        'data' => [
+                            'notification_banner_text' => '<img src="' . esc_url(plugins_url('/examples/notification_banner.png', __FILE__)) . '" >'
+                        ]
+                    ]
+                ]
             ]);
         }
     }

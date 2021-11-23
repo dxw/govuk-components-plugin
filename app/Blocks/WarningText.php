@@ -24,11 +24,20 @@ class WarningText implements iBlock
             acf_register_block_type([
                 'name'              => 'warning_text',
                 'title'             => 'Warning Text',
+                'description' => 'Warn users about something important, such as consequences of an action.',
                 'render_callback'   => [$this, 'render'],
                 'mode' => 'auto',
                 'category'          => 'govuk-custom',
                 'icon'              => 'warning',
                 'keywords'          => [ 'warning', 'text', 'notification' ],
+                'example' => [
+                    'attributes' => [
+                        'mode' => 'preview',
+                        'data' => [
+                            'warning_text_text' => '<img src="' . esc_url(plugins_url('/examples/warning_text.png', __FILE__)) . '" >'
+                        ]
+                    ]
+                ]
             ]);
         }
     }

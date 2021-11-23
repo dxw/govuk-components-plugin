@@ -25,6 +25,8 @@ describe(\GovukComponents\Blocks\Accordion::class, function () {
             allow('function_exists')->toBeCalled()->andReturn('true');
             allow('acf_register_block_type')->toBeCalled();
             allow('plugin_dir_path')->toBeCalled()->andReturn('/path/to/wp-content/plugins/govuk-components-plugin/app/Blocks');
+            allow('esc_url')->toBeCalled();
+            allow('plugins_url')->toBeCalled();
             expect('acf_register_block_type')->toBeCalled()->once()->with(Arg::toBeAn('array'));
             $this->accordion->registerBlock();
         });
