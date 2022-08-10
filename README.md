@@ -1,4 +1,4 @@
-# GOV.UK Components
+# GOVUK Components
 
 A WordPress plugin that adds components from the [GOV.UK Design System](https://design-system.service.gov.uk/components/) to the block editor.
 
