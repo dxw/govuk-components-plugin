@@ -2,7 +2,7 @@
 /*
 Plugin Name: GOV.UK Components
 Description: Adds components from the GOV.UK Frontend to the block editor
-Version: 0.4.0
+Version: 0.4.1
 Author: dxw
 Author URI: https://www.dxw.com
 */
