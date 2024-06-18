@@ -5,7 +5,7 @@ class BlockCategory implements \Dxw\Iguana\Registerable
 {
     public function register()
     {
-        add_filter('block_categories', [$this, 'newBlocksCategory'], 10, 1);
+        add_filter('block_categories_all', [$this, 'newBlocksCategory'], 10, 1);
     }
 
     public function newBlocksCategory($categories)
