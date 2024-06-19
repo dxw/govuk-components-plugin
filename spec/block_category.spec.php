@@ -9,7 +9,7 @@ describe(\GovukComponents\BlockCategory::class, function () {
         it('adds the filter', function () {
             allow('add_filter')->toBeCalled();
             expect('add_filter')->toBeCalled()->once()->with(
-                'block_categories',
+                'block_categories_all',
                 [ $this->blockCategory, 'newBlocksCategory' ],
                 10,
                 1
