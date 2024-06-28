@@ -1,7 +1,7 @@
 {
   "config": {
     "platform": {
-      "php": "7.2.34"
+      "php": "7.4"
     }
   },
   "autoload": {
@@ -19,6 +19,6 @@
     "dxw/php-cs-fixer-config": "^1.0"
   },
   "require": {
-    "dxw/iguana": "^1.1"
+    "dxw/iguana": "^1.3.2"
   }
 }
