@@ -1,7 +1,7 @@
 <?php
 
 $bannerHeadingId = 'govuk-notification-banner-' . $args['govuk-components-notification-banner-count'] . '-title';
- ?>
+?>
 <div class="<?php echo apply_filters('govuk_components_class', 'govuk-notification-banner') ?>" role="region" aria-labelledby="<?php echo $bannerHeadingId ?>" data-module="govuk-notification-banner">
   <div class="<?php echo apply_filters('govuk_components_class', 'govuk-notification-banner__header') ?>">
     <h2 class="<?php echo apply_filters('govuk_components_class', 'govuk-notification-banner__title') ?>" id="<?php echo $bannerHeadingId ?>">
