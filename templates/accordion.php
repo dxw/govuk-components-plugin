@@ -23,7 +23,7 @@ $rowCount = 0;
                     </span>
                     </h2>
                 </div>
-                <div id="<?php echo esc_attr($accordionId) ?>-content-<?php echo $rowCount ?>" class="<?php echo apply_filters('govuk_components_class', 'govuk-accordion__section-content') ?>" aria-labelledby="<?php echo esc_attr($headingId) ?>">
+                <div id="<?php echo esc_attr($accordionId) ?>-content-<?php echo $rowCount ?>" class="<?php echo apply_filters('govuk_components_class', 'govuk-accordion__section-content') ?>">
 					<?php echo wp_kses_post(get_sub_field('accordion_section_content')); ?>
                 </div>
             </div>
