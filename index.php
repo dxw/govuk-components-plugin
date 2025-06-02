@@ -1,4 +1,5 @@
 <?php
+
 /*
 Plugin Name: GOV.UK Components
 Description: Adds components from the GOV.UK Frontend to the block editor
