@@ -2,8 +2,6 @@
 
 namespace GovukComponents\Blocks;
 
-use function PHPSTORM_META\map;
-
 class Details implements iBlock
 {
 	protected const DISPLAY_NAME = 'Details';
