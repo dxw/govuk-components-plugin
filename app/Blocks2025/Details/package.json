@@ -1,0 +1,14 @@
+{
+  "name": "details",
+  "version": "0.1.0",
+  "description": "Details block with GOV.UK markup",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dxw",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/scripts": "^30.19.0"
+  }
+}
