@@ -1,5 +1,7 @@
 <?php
 
+use Kahlan\Arg;
+
 describe(\GovukComponents\Blocks2025\Details\Block::class, function () {
 	beforeEach(function () {
 		$this->block = new \GovukComponents\Blocks2025\Details\Block();
@@ -18,4 +20,14 @@ describe(\GovukComponents\Blocks2025\Details\Block::class, function () {
 			$this->block->register();
 		});
 	});
+
+    describe('->registerBlock()', function () {
+        it('registers the block', function () {
+            allow('register_block_type')->toBeCalled();
+
+            expect('register_block_type')->toBeCalled()->once()->with(Arg::toBeA('string'));
+
+            $this->block->registerBlock();
+        });
+    });
 });
