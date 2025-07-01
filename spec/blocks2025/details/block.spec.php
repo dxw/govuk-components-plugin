@@ -21,13 +21,13 @@ describe(\GovukComponents\Blocks2025\Details\Block::class, function () {
 		});
 	});
 
-    describe('->registerBlock()', function () {
-        it('registers the block', function () {
-            allow('register_block_type')->toBeCalled();
+	describe('->registerBlock()', function () {
+		it('registers the block', function () {
+			allow('register_block_type')->toBeCalled();
 
-            expect('register_block_type')->toBeCalled()->once()->with(Arg::toBeA('string'));
+			expect('register_block_type')->toBeCalled()->once()->with(Arg::toBeA('string'));
 
-            $this->block->registerBlock();
-        });
-    });
+			$this->block->registerBlock();
+		});
+	});
 });
