@@ -38,6 +38,8 @@ describe(\GovukComponents\Blocks\Details\Block::class, function () {
 	});
 
 	describe('->getOptionName()', function () {
-
+		it('returns the option name', function () {
+			expect($this->block->getOptionName())->toBe('details');
+		});
 	});
 });
