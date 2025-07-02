@@ -30,4 +30,14 @@ describe(\GovukComponents\Blocks\Details\Block::class, function () {
 			$this->block->registerBlock();
 		});
 	});
+
+	describe('->getDisplayName()', function () {
+		it('returns the display name', function () {
+			expect($this->block->getDisplayName())->toBe('Details');
+		});
+	});
+
+	describe('->getOptionName()', function () {
+
+	});
 });
