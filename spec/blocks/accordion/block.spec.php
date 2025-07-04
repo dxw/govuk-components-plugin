@@ -36,4 +36,10 @@ describe(\GovukComponents\Blocks\Accordion\Block::class, function () {
 			expect($this->block->getDisplayName())->toBe('Accordion');
 		});
 	});
+
+	describe('->getOptionName()', function () {
+		it('returns the option name', function () {
+			expect($this->block->getOptionName())->toBe('accordion');
+		});
+	});
 });

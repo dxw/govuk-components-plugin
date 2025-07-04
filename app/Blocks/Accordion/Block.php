@@ -6,6 +6,8 @@ class Block implements \GovukComponents\Blocks\iBlock
 {
 	protected const DISPLAY_NAME = 'Accordion';
 
+	protected const OPTION_NAME = 'accordion';
+
 	public function init(): void
 	{
 		add_action('init', [$this, 'registerBlock']);
@@ -23,6 +25,6 @@ class Block implements \GovukComponents\Blocks\iBlock
 
 	public function getOptionName(): string
 	{
-
+		return self::OPTION_NAME;
 	}
 }
