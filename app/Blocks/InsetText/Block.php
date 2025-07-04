@@ -6,6 +6,8 @@ class Block implements \GovukComponents\Blocks\iBlock
 {
 	protected const DISPLAY_NAME = 'Inset Text';
 
+	protected const OPTION_NAME = 'inset_text';
+
 	public function init(): void
 	{
 		add_action('init', [$this, 'registerBlock']);
@@ -23,6 +25,6 @@ class Block implements \GovukComponents\Blocks\iBlock
 
 	public function getOptionName(): string
 	{
-
+		return self::OPTION_NAME;
 	}
 }

@@ -36,4 +36,10 @@ describe(\GovukComponents\Blocks\InsetText\Block::class, function () {
 			expect($this->block->getDisplayName())->toBe('Inset Text');
 		});
 	});
+
+	describe('->getOptionName()', function () {
+		it('returns the option name', function () {
+			expect($this->block->getOptionName())->toBe('inset_text');
+		});
+	});
 });
