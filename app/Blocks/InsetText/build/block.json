@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "goveuk-components/inset-text",
+  "name": "govuk-components/inset-text",
   "version": "0.1.0",
   "title": "GOV.UK Inset Text",
   "category": "",
