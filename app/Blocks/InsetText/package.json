@@ -1,7 +1,7 @@
 {
   "name": "inset-text",
   "version": "1.0.0",
-  "description": "GOV.UK Components Inset-Text Block",
+  "description": "GOV.UK Components Inset Text Block",
   "main": "build/index.js",
   "scripts": {
     "build": "wp-scripts build",
