@@ -1,7 +1,7 @@
 {
-  "name": "accordionrow",
+  "name": "accordion-row",
   "version": "1.0.0",
-  "description": "GOV.UK Components AccordionRow Block",
+  "description": "GOV.UK Components Accordion Row Block",
   "main": "build/index.js",
   "scripts": {
     "build": "wp-scripts build",
