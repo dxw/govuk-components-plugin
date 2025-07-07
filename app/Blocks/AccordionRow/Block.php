@@ -4,6 +4,8 @@ namespace GovukComponents\Blocks\AccordionRow;
 
 class Block implements \GovukComponents\Blocks\iBlock
 {
+	protected const DISPLAY_NAME = 'Accordion Row';
+
 	public function init(): void
 	{
 		add_action('init', [$this, 'registerBlock']);
@@ -16,7 +18,7 @@ class Block implements \GovukComponents\Blocks\iBlock
 
 	public function getDisplayName(): string
 	{
-
+		return self::DISPLAY_NAME;
 	}
 
 	public function getOptionName(): string
