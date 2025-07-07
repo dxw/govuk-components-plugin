@@ -36,4 +36,10 @@ describe(\GovukComponents\Blocks\WarningText\Block::class, function () {
 			expect($this->block->getDisplayName())->toBe('Warning Text');
 		});
 	});
+
+	describe('->getOptionName()', function () {
+		it('returns the option name', function () {
+			expect($this->block->getOptionName())->toBe('warning-text');
+		});
+	});
 });
