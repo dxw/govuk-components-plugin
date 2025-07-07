@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "govuk-components/details",
+  "version": "0.1.0",
+  "title": "GOV.UK Details",
+  "category": "",
+  "description": "Make a page easier to scan by letting users reveal more detailed information only if they need it.",
+  "example": {},
+  "icon": "arrow-down",
+  "attributes": {
+    "summary": {
+      "type": "string",
+      "source": "html",
+      "selector": ".govuk-details__summary-text"
+    }
+  },
+  "supports": {
+    "align": false,
+    "html": false,
+    "layout": {
+      "allowEditing": false
+    },
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "padding": false,
+      "blockGap": false
+    }
+  },
+  "textdomain": "govuk-components-plugin",
+  "editorScript": "file:./index.js"
+}

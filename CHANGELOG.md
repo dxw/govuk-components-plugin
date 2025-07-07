@@ -6,7 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- GOV.UK Details block for the block editor
+
 ### Removed
+
+- Old Details block that requires ACF
 - `aria-labelledby` attribute from `<div>` element with no specified role.
 
 ## [0.4.3] - 2024-09-09
