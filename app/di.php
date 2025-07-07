@@ -5,6 +5,7 @@ $registrar->addInstance(new \GovukComponents\Blocks\Button());
 $registrar->addInstance(new \GovukComponents\Blocks\Details\Block());
 $registrar->addInstance(new \GovukComponents\Blocks\InsetText());
 $registrar->addInstance(new \GovukComponents\Blocks\NotificationBanner());
+$registrar->addInstance(new \GovukComponents\Blocks\Tabs\Block());
 $registrar->addInstance(new \GovukComponents\Blocks\WarningText());
 
 $registrar->addInstance(new \GovukComponents\BlockCategory());
@@ -16,6 +17,7 @@ $registrar->addInstance(new \GovukComponents\BlockController(
 		$registrar->getInstance(\GovukComponents\Blocks\Details\Block::class),
 		$registrar->getInstance(\GovukComponents\Blocks\InsetText::class),
 		$registrar->getInstance(\GovukComponents\Blocks\NotificationBanner::class),
+		$registrar->getInstance(\GovukComponents\Blocks\Tabs\Block::class),
 		$registrar->getInstance(\GovukComponents\Blocks\WarningText::class)
 	]
 ));
