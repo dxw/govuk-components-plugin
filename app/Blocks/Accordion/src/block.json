@@ -1,0 +1,53 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "govuk-components/accordion",
+	"version": "0.1.0",
+	"title": "GOV.UK Accordion",
+	"category": "",
+	"allowedBlocks": [ "govuk-components/accordion-row" ],
+	"description": "Let users show and hide sections of related content on a page.",
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "core/heading",
+				"attributes": {
+					"content": "Writing well for the web"
+				}
+			},
+			{
+				"name": "core/paragraph",
+				"attributes": {
+					"content": "This is the content for Writing well on the web."
+				}
+			},
+			{
+				"name": "core/heading",
+				"attributes": {
+					"content": "Writing well for specialists"
+				}
+			},
+			{
+				"name": "core/heading",
+				"attributes": {
+					"content": "Know your audience"
+				}
+			}
+		]
+	},
+    "icon": "list-view",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"showAll": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"providesContext": {
+		"govukblogs/showAll": "showAll"
+	},
+	"textdomain": "govuk-components-plugin",
+	"editorScript": "file:./index.js"
+}
