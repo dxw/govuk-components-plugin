@@ -9,6 +9,11 @@ class Block implements \GovukComponents\Blocks\iBlock
 		add_action('init', [$this, 'registerBlock']);
 	}
 
+	public function registerBlock(): void
+	{
+		register_block_type(__DIR__ . '/build');
+	}
+
 	public function getDisplayName(): string
 	{
 
