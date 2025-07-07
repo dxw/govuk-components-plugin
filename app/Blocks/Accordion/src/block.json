@@ -46,7 +46,7 @@
 		}
 	},
 	"providesContext": {
-		"govukblogs/showAll": "showAll"
+		"govuk-components/showAll": "showAll"
 	},
 	"textdomain": "govuk-components-plugin",
 	"editorScript": "file:./index.js"
