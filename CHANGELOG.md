@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- GOV.UK Warning Text block for the block editor
 - GOV.UK Inset Text block for the block editor
 - GOV.UK Accordion Row block for the block editor
 - GOV.UK Accordion block for the block editor
@@ -15,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- Old Warning Text block that requires ACF
 - Old Inset Text block that requries ACF
 - Old Accordion block that requires ACF
 - Old Details block that requires ACF
