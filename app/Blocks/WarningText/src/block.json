@@ -15,7 +15,7 @@
         "content": {
             "type": "string",
             "source": "html",
-            "selector": "strong.govuk-warning-text__text"
+            "selector": ".govuk-warning-text__text-content"
         }
     },
     "icon": "warning",

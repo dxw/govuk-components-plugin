@@ -8,10 +8,12 @@ export default function save({ attributes }) {
 
     return (
         <div { ...blockProps }>
-            <span className="govuk-warning-text__icon" aria-hidden="true">!</span>
-            <strong className="govuk-warning-text__text">
-                <span class="govuk-visually-hidden">Warning</span>
+            <span className='govuk-warning-text__icon' aria-hidden='true'>!</span>
+            <strong className='govuk-warning-text__text'>
+                <span class='govuk-visually-hidden'>Warning</span>
                 <RichText.Content
+                    tagName='span'
+                    className='govuk-warning-text__text-content'
                     value={attributes.content}
                 />
             </strong>
