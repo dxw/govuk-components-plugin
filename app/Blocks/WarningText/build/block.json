@@ -13,9 +13,7 @@
   },
   "attributes": {
     "content": {
-      "type": "string",
-      "source": "html",
-      "selector": ".govuk-warning-text__text-content"
+      "type": "string"
     }
   },
   "icon": "warning",
