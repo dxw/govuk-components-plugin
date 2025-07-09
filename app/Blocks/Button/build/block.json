@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "govuk-components/button",
+  "version": "0.1.0",
+  "title": "GOV.UK Button",
+  "category": "",
+  "icon": "button",
+  "description": "Use the button component to create a link to a new page/post.",
+  "attributes": {
+    "content": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "textdomain": "govuk-components-plugin",
+  "editorScript": "file:./index.js",
+  "styles": [
+    {
+      "name": "primary",
+      "label": "Primary",
+      "isDefault": true
+    },
+    {
+      "name": "secondary",
+      "label": "Secondary"
+    },
+    {
+      "name": "start",
+      "label": "Start"
+    },
+    {
+      "name": "warning",
+      "label": "Warning"
+    },
+    {
+      "name": "inverse",
+      "label": "Inverse"
+    }
+  ]
+}
