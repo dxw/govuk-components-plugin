@@ -12,8 +12,6 @@ export default function save({ attributes }) {
             <strong className='govuk-warning-text__text'>
                 <span class='govuk-visually-hidden'>Warning</span>
                 <RichText.Content
-                    tagName='span'
-                    className='govuk-warning-text__text-content'
                     value={attributes.content}
                 />
             </strong>

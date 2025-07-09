@@ -13,8 +13,6 @@ export default function Edit({ attributes, setAttributes }) {
             <strong className='govuk-warning-text__text'>
                 <span class='govuk-visually-hidden'>Warning</span>
                 <RichText
-                    tagName='span'
-                    className='govuk-warning-text__text-content'
                     value={attributes.content}
                     onChange={(value) => setAttributes({ content: value })}
                     placeholder={__('Add text about your warning here.')}
