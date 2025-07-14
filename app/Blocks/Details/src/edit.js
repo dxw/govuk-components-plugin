@@ -14,7 +14,7 @@ const TEMPLATE = [
 
 export default function Edit( { attributes, setAttributes, clientId }) {
 
-	const { summary } = attributes;
+	const { summary, previewOpen } = attributes;
 
 	const blockProps = useBlockProps(
 		{ className: "govuk-details" }
@@ -41,7 +41,7 @@ export default function Edit( { attributes, setAttributes, clientId }) {
 	return (
 		<details 
 			{ ...innerBlockProps }
-			open={ isSelected }
+			open={ isSelected || previewOpen }
 		>
 			<summary className="govuk-details__summary" onClick={ (event) => event.preventDefault() }>
 				<span className="govuk-details__summary-text">
