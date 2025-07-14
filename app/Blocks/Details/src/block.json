@@ -6,13 +6,29 @@
 	"title": "GOV.UK Details",
 	"category": "govuk-components",
 	"description": "Make a page easier to scan by letting users reveal more detailed information only if they need it.",
-	"example": {},
+	"example": {
+		"attributes": {
+			"summary": "Help with nationality",
+			"previewOpen": true
+		},
+		"innerBlocks": [
+			{
+			"name": "core/paragraph",
+				"attributes": {
+					"content": "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+				}
+			}
+		]
+	},
     "icon": "arrow-down",
 	"attributes": {
 		"summary": {
 			"type": "string",
-			"source": "html",
-			"selector": ".govuk-details__summary-text"
+			"default": ""
+		},
+		"previewOpen": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"supports": {
