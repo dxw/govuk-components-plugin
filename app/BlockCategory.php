@@ -11,7 +11,7 @@ class BlockCategory implements \Dxw\Iguana\Registerable
 
 	public function newBlocksCategory($categories)
 	{
-		$block_category = [ 'title' => 'Custom', 'slug' => 'govuk-custom' ];
+		$block_category = [ 'title' => 'GOV.UK Design System', 'slug' => 'govuk-components' ];
 		$category_slugs = array_column($categories, 'slug');
 
 		if (! in_array($block_category['slug'], $category_slugs, true)) {
