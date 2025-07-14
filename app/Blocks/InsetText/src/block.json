@@ -4,7 +4,7 @@
 	"name": "govuk-components/inset-text",
 	"version": "0.1.0",
 	"title": "GOV.UK Inset Text",
-	"category": "",
+	"category": "govuk-components",
 	"description": "Use inset and a highlight bar to differentiate a block of text from the content that surrounds it",
 	"example": {
 		"innerBlocks": [
