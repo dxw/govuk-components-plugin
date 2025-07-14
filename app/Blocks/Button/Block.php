@@ -17,7 +17,7 @@ class Block implements \GovukComponents\Blocks\iBlock
 	{
 		wp_enqueue_script(
 			'block-style-variations',
-			plugin_dir_url(dirname(__DIR__, 2)) . 'assets/js/block-style-variations.js',
+			plugin_dir_url(dirname(__DIR__, 2)) . 'assets/js/blocks/core/button/block-style-variations.js',
 			[
 				'wp-blocks',
 				'wp-dom-ready',
