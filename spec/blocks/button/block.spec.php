@@ -32,4 +32,10 @@ describe(\GovukComponents\Blocks\Button\Block::class, function () {
 			$this->block->blockStyleVariations();
 		});
 	});
+
+	describe('->getDisplayName()', function () {
+		it('returns the display name', function () {
+			expect($this->block->getDisplayName())->toBe('Button');
+		});
+	});
 });

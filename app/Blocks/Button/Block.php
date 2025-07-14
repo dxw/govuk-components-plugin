@@ -4,6 +4,8 @@ namespace GovukComponents\Blocks\Button;
 
 class Block implements \GovukComponents\Blocks\iBlock
 {
+	protected const DISPLAY_NAME = 'Button';
+
 	public function init(): void
 	{
 		add_action('enqueue_block_editor_assets', [$this, 'blockStyleVariations']);
@@ -26,7 +28,7 @@ class Block implements \GovukComponents\Blocks\iBlock
 
 	public function getDisplayName(): string
 	{
-
+		return self::DISPLAY_NAME;
 	}
 
 	public function getOptionName(): string
