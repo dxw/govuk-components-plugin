@@ -38,4 +38,10 @@ describe(\GovukComponents\Blocks\Button\Block::class, function () {
 			expect($this->block->getDisplayName())->toBe('Button');
 		});
 	});
+
+	describe('->getOptionName()', function () {
+		it('returns the option name', function () {
+			expect($this->block->getOptionName())->toBe('button');
+		});
+	});
 });

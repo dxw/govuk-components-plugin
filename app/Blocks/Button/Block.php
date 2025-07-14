@@ -6,6 +6,8 @@ class Block implements \GovukComponents\Blocks\iBlock
 {
 	protected const DISPLAY_NAME = 'Button';
 
+	protected const OPTION_NAME = 'button';
+
 	public function init(): void
 	{
 		add_action('enqueue_block_editor_assets', [$this, 'blockStyleVariations']);
@@ -33,6 +35,6 @@ class Block implements \GovukComponents\Blocks\iBlock
 
 	public function getOptionName(): string
 	{
-
+		return self::OPTION_NAME;
 	}
 }
