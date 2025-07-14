@@ -4,7 +4,7 @@
   "name": "govuk-components/accordion",
   "version": "0.1.0",
   "title": "GOV.UK Accordion",
-  "category": "",
+  "category": "govuk-components",
   "allowedBlocks": [
     "govuk-components/accordion-row"
   ],
@@ -48,7 +48,7 @@
     }
   },
   "providesContext": {
-    "govukblogs/showAll": "showAll"
+    "govuk-components/showAll": "showAll"
   },
   "textdomain": "govuk-components-plugin",
   "editorScript": "file:./index.js"

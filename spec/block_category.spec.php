@@ -39,8 +39,8 @@ describe(\GovukComponents\BlockCategory::class, function () {
 				$result = $this->blockCategory->newBlocksCategory($categories);
 				expect($result)->toEqual([
 					[
-						"title" => "Custom",
-						"slug"  => "govuk-custom"
+						"title" => "GOV.UK Design System",
+						"slug"  => "govuk-components"
 					],
 					[
 						'slug'  => 'text',
@@ -61,8 +61,8 @@ describe(\GovukComponents\BlockCategory::class, function () {
 			it('returns the array unchanged', function () {
 				$categories = [
 					[
-						"title" => "Custom",
-						"slug"  => "govuk-custom"
+						"title" => "GOV.UK Design System",
+						"slug"  => "govuk-components"
 					],
 					[
 						'slug'  => 'text',

@@ -4,7 +4,7 @@
   "name": "govuk-components/details",
   "version": "0.1.0",
   "title": "GOV.UK Details",
-  "category": "",
+  "category": "govuk-components",
   "description": "Make a page easier to scan by letting users reveal more detailed information only if they need it.",
   "example": {},
   "icon": "arrow-down",

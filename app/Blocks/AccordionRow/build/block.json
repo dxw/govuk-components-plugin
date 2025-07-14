@@ -4,7 +4,7 @@
   "name": "govuk-components/accordion-row",
   "version": "0.1.0",
   "title": "GOV.UK Accordion Row",
-  "category": "",
+  "category": "govuk-components",
   "parent": [
     "govuk-components/accordion"
   ],
