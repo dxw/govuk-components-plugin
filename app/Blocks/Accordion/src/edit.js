@@ -51,6 +51,14 @@ export default function Edit( { attributes, setAttributes } ) {
 					<p>
 						Test with users to decide if using an accordion outweighs the potential problems with hiding content.
 					</p>
+					<p>
+						<a
+							href="https://design-system.service.gov.uk/components/accordion/"
+							target="_blank"
+						>
+							Learn more about accordions in the GOV.UK Design System ↗
+						</a>
+					</p>
 				</PanelBody>
 				
 			</InspectorControls>
