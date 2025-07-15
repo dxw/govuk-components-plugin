@@ -30,4 +30,10 @@ describe(\GovukComponents\Blocks\TabPanel\Block::class, function () {
 			$this->block->registerBlock();
 		});
 	});
+
+	describe('->getDisplayName()', function () {
+		it('returns the  display name', function () {
+			expect($this->block->getDisplayName())->toBe('Tab Panel');
+		});
+	});
 });
