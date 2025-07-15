@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- Old Button block that requires ACF
 - Old Warning Text block that requires ACF
 - Old Inset Text block that requries ACF
 - Old Accordion block that requires ACF
