@@ -36,4 +36,10 @@ describe(\GovukComponents\Blocks\TabPanel\Block::class, function () {
 			expect($this->block->getDisplayName())->toBe('Tab Panel');
 		});
 	});
+
+	describe('->getOptionName()', function () {
+		it('returns the option name', function () {
+			expect($this->block->getOptionName())->toBe('tab_panel');
+		});
+	});
 });
