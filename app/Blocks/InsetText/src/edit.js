@@ -1,5 +1,6 @@
 import { __ } from '@wordpress/i18n';
-import { useBlockProps, useInnerBlocksProps, store as blockEditorStore } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
+import BlockInspector from './components/InspectorPanels/BlockInspector';
 
 const TEMPLATE = [
 	[
@@ -25,8 +26,12 @@ export default function Edit() {
 	);
 
 	return (
-		<div { ...innerBlockProps }>
-			{ innerBlockProps.children }
-		</div>
+		<>
+			<BlockInspector />
+			<div { ...innerBlockProps }>
+				{ innerBlockProps.children }
+			</div>
+		</>
+		
 	);
 }
