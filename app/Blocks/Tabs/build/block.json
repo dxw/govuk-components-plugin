@@ -1,0 +1,14 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "govuk-components/tabs",
+  "version": "0.1.0",
+  "title": "GOV.UK Tabs",
+  "category": "govuk-components",
+  "allowedBlocks": "",
+  "description": "The tabs component lets users navigate between related sections of content, displaying one section at a time.",
+  "example": {},
+  "icon": "index-card",
+  "textdomain": "govuk-components-plugin",
+  "editorScript": "file:./index.js"
+}
