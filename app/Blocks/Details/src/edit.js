@@ -2,6 +2,8 @@
 import { __ } from '@wordpress/i18n';
 import { RichText, useBlockProps, useInnerBlocksProps, store as blockEditorStore } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
+import BlockInspector from './Components/InspectorPanels/BlockInspector';
+import UsagePanel from './Components/InspectorPanels/UsagePanel';
 
 const TEMPLATE = [
 	[
@@ -39,27 +41,31 @@ export default function Edit( { attributes, setAttributes, clientId }) {
 	);
 
 	return (
-		<details 
-			{ ...innerBlockProps }
-			open={ isSelected || previewOpen }
-		>
-			<summary className="govuk-details__summary" onClick={ (event) => event.preventDefault() }>
-				<span className="govuk-details__summary-text">
-					<RichText
-						aria-label={ __( 'Write summary' ) }
-						placeholder={ __( 'Write summary…' ) }
-						allowedFormats={ [] }
-						withoutInteractiveFormatting
-						value={ summary }
-						onChange={ ( newSummary ) => 
-							setAttributes( { summary: newSummary })
-						}
-					/>
-				</span>
-			</summary>
-			<div className='govuk-details__text'>
-				{ innerBlockProps.children }
-			</div>
-		</details>
+		<>
+			<BlockInspector />
+			<details 
+				{ ...innerBlockProps }
+				open={ isSelected || previewOpen }
+			>
+				<summary className="govuk-details__summary" onClick={ (event) => event.preventDefault() }>
+					<span className="govuk-details__summary-text">
+						<RichText
+							aria-label={ __( 'Write summary' ) }
+							placeholder={ __( 'Write summary…' ) }
+							allowedFormats={ [] }
+							withoutInteractiveFormatting
+							value={ summary }
+							onChange={ ( newSummary ) => 
+								setAttributes( { summary: newSummary })
+							}
+						/>
+					</span>
+				</summary>
+				<div className='govuk-details__text'>
+					{ innerBlockProps.children }
+				</div>
+			</details>
+		</>
+		
 	);
 }
