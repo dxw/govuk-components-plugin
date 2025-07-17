@@ -1,0 +1,22 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "govuk-components/tab-panel",
+	"version": "0.1.0",
+	"title": "GOV.UK Tab Panel",
+	"category": "govuk-components",
+    "parent": [ "govuk-components/tabs" ],
+	"description": "The tab panel component contains content for a section of a page.",
+	"example": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "panelId": {
+            "type": "string"
+        }
+    },  
+    "icon": "align-right",
+	"textdomain": "govuk-components-plugin",
+	"editorScript": "file:./index.js"
+}

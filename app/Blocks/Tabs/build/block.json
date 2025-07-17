@@ -1,0 +1,53 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "govuk-components/tabs",
+  "version": "0.1.0",
+  "title": "GOV.UK Tabs",
+  "category": "govuk-components",
+  "description": "The tabs component lets users navigate between related sections of content, displaying one section at a time.",
+  "example": {
+    "innerBlocks": [
+      {
+        "name": "govuk-components/tab-panel",
+        "attributes": {
+          "title": "Tab 1"
+        },
+        "innerBlocks": [
+          {
+            "name": "core/paragraph",
+            "attributes": {
+              "content": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat."
+            }
+          }
+        ]
+      },
+      {
+        "name": "govuk-components/tab-panel",
+        "attributes": {
+          "title": "Tab 2"
+        },
+        "innerBlocks": [
+          {
+            "name": "core/paragraph",
+            "attributes": {
+              "content": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "attributes": {
+    "tabs": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "allowedBlocks": [
+    "govuk-components/tab-panel"
+  ],
+  "icon": "index-card",
+  "textdomain": "govuk-components-plugin",
+  "editorScript": "file:./index.js"
+}
