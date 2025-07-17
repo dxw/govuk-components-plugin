@@ -8,7 +8,15 @@
     "parent": [ "govuk-components/tabs" ],
 	"description": "The tab panel component contains content for a section of a page.",
 	"example": {},
-    "icon": "align right",
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "panelId": {
+            "type": "string"
+        }
+    },  
+    "icon": "align-right",
 	"textdomain": "govuk-components-plugin",
 	"editorScript": "file:./index.js"
 }
