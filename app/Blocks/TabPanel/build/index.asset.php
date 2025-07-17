@@ -1,3 +1,3 @@
 <?php
 
-return ['dependencies' => ['react-jsx-runtime', 'wp-block-editor', 'wp-blocks', 'wp-i18n'], 'version' => 'a0061e1cc0e24fb1ab92'];
+return ['dependencies' => ['react', 'react-jsx-runtime', 'wp-block-editor', 'wp-blocks', 'wp-i18n'], 'version' => '62042161c79ede782f16'];
