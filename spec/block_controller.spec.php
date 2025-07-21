@@ -60,4 +60,14 @@ describe(\GovukComponents\BlockController::class, function () {
 			]);
 		});
 	});
+
+	describe('->hasParent()', function () {
+		it('looks for the block config in the expected path', function () {
+			allow('plugin_dir_path')->toBeCalled();
+
+			expect('plugin_dir_path')->toBeCalled()->once()->with(Arg::toBeA('string'));
+
+			$this->blockController->hasParent('Custom Block');
+		});
+	});
 });
