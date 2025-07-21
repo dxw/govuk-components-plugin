@@ -80,5 +80,18 @@ describe(\GovukComponents\BlockController::class, function () {
 			});
 		});
 
+		context('if the block config exist', function () {
+			beforeEach(function () {
+				allow('file_exists')->toBeCalled()->andReturn(true);
+			});
+
+			it('returns true if the block has a parent', function () {
+				allow('file_get_contents')->toBeCalled()->andReturn('{
+					"parent": [ "parent-block" ]
+				}');
+
+				expect($this->blockController->hasParent('Custom Block'))->toBe(true);
+			});
+		});
 	});
 });

@@ -47,5 +47,10 @@ class BlockController
 		if (!file_exists($path)) {
 			return false;
 		}
+
+		$contents = file_get_contents($path);
+		$data = json_decode($contents, true);
+
+		return !empty($data['parent']);
 	}
 }
