@@ -64,6 +64,16 @@ describe(\GovukComponents\BlockController::class, function () {
 				'dumb_struck',
 			]);
 		});
+
+		it('calls the init() method of each block that has a parent or ancestor', function () {
+			allow($this->block1)->toReceive('init');
+			allow($this->blockController)->toReceive('hasParent')->andReturn(true);
+
+			expect($this->block1)->toReceive('init')->once();
+			$this->blockController->activateBlocks([
+				'other_option',
+			]);
+		});
 	});
 
 	describe('->hasParent()', function () {
