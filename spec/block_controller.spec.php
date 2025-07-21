@@ -24,6 +24,7 @@ describe(\GovukComponents\BlockController::class, function () {
 
 	describe('->getAvailableBlockOptions()', function () {
 		it('returns a key-value array of the blocks, where the key is the block OPTION_NAME, and the value the DISPLAY_NAME', function () {
+			allow($this->blockController)->toReceive('hasParent');
 			$result = $this->blockController->getAvailableBlockOptions();
 			expect($result)->toEqual([
 				'foo_bar' => 'Foo Bar',

@@ -15,7 +15,11 @@ class BlockController
 	{
 		$options = [];
 		foreach ($this->blocks as $block) {
-			$options[$block->getOptionName()] = $block->getDisplayName();
+			$displayName = $block->getDisplayName();
+
+			if (!$this->hasParent($displayName)) {
+				$options[$block->getOptionName()] = $displayName;
+			}
 		}
 		return $options;
 	}
