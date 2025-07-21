@@ -46,6 +46,8 @@ describe(\GovukComponents\BlockController::class, function () {
 	describe('->activateBlocks()', function () {
 		it('calls the init() method of each block that has an option matching a value in the array it is given', function () {
 			allow($this->block1)->toReceive('init');
+			allow($this->blockController)->toReceive('hasParent');
+
 			expect($this->block1)->toReceive('init')->once();
 			$this->blockController->activateBlocks([
 				'foo_bar',
@@ -54,6 +56,8 @@ describe(\GovukComponents\BlockController::class, function () {
 		it('does not call the init() method of blocks that do not have an option matching a value in the array it is given', function () {
 			allow($this->block1)->toReceive('init');
 			allow($this->block2)->toReceive('init');
+			allow($this->blockController)->toReceive('hasParent');
+
 			expect($this->block1)->not->toReceive('init');
 			expect($this->block2)->toReceive('init')->once();
 			$this->blockController->activateBlocks([

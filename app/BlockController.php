@@ -39,6 +39,12 @@ class BlockController
 			if (in_array($block->getOptionName(), $blockOptionNames)) {
 				$block->init();
 			}
+
+			$displayName = $block->getDisplayName();
+
+			if ($this->hasParent($displayName)) {
+				$block->init();
+			}
 		}
 	}
 
