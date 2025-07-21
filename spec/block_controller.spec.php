@@ -98,6 +98,14 @@ describe(\GovukComponents\BlockController::class, function () {
 
 				expect($this->blockController->hasParent('Custom Block'))->toBe(false);
 			});
+
+			it('returns true if the block has an ancestor', function () {
+				allow('file_get_contents')->toBeCalled()->andReturn('{
+					"ancestor": [ "ancestor-block" ]
+				}');
+
+				expect($this->blockController->hasParent('Custom Block'))->toBe(true);
+			});
 		});
 	});
 });

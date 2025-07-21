@@ -51,6 +51,6 @@ class BlockController
 		$contents = file_get_contents($path);
 		$data = json_decode($contents, true);
 
-		return !empty($data['parent']);
+		return !empty($data['parent']) || !empty($data['ancestor']);
 	}
 }
