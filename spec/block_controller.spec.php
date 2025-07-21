@@ -62,12 +62,23 @@ describe(\GovukComponents\BlockController::class, function () {
 	});
 
 	describe('->hasParent()', function () {
-		it('looks for the block config in the expected path', function () {
+		beforeEach(function () {
 			allow('plugin_dir_path')->toBeCalled();
+		});
 
+		it('looks for the block config in the expected path', function () {
 			expect('plugin_dir_path')->toBeCalled()->once()->with(Arg::toBeA('string'));
 
 			$this->blockController->hasParent('Custom Block');
 		});
+
+		context('if the block config does not exist', function () {
+			it('returns false', function () {
+				allow('file_exists')->toBeCalled()->andReturn(false);
+
+				expect($this->blockController->hasParent('Custom Block'))->toBe(false);
+			});
+		});
+
 	});
 });
