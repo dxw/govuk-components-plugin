@@ -11,7 +11,9 @@
     "dxw/phar-install": "^1.1",
     "friendsofphp/php-cs-fixer": "^3.2",
     "kahlan/kahlan": "^5.0",
-    "dxw/php-cs-fixer-config": "^2.1.1"
+    "dxw/php-cs-fixer-config": "^2.1.1",
+    "vimeo/psalm": "^6.0",
+    "humanmade/psalm-plugin-wordpress": "^3.1"
   },
   "require": {
     "php": "^7.4|^8.2",
