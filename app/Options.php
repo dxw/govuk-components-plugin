@@ -2,7 +2,7 @@
 
 namespace GovukComponents;
 
-class Options implements \Dxw\Iguana\Registerable
+final class Options implements \Dxw\Iguana\Registerable
 {
 	private $blockController;
 
@@ -11,14 +11,20 @@ class Options implements \Dxw\Iguana\Registerable
 		$this->blockController = $blockController;
 	}
 
-	public function register()
+	#[\Override]
+	public function register(): void
 	{
+		/** @psalm-suppress HookNotFound */
 		add_action('acf/init', [$this, 'addPage']);
+
+		/** @psalm-suppress HookNotFound */
 		add_action('acf/init', [$this, 'registerOptions']);
+
+		/** @psalm-suppress HookNotFound */
 		add_action('acf/init', [$this, 'apply']);
 	}
 
-	public function addPage()
+	public function addPage(): void
 	{
 		if (function_exists('acf_add_options_page')) {
 			acf_add_options_page([
@@ -29,7 +35,7 @@ class Options implements \Dxw\Iguana\Registerable
 		}
 	}
 
-	public function registerOptions()
+	public function registerOptions(): void
 	{
 		if (function_exists('acf_add_local_field_group')):
 
@@ -81,12 +87,14 @@ class Options implements \Dxw\Iguana\Registerable
 		endif;
 	}
 
-	public function apply()
+	public function apply(): void
 	{
+		/** @var list<string>|null */
 		$activeBlocks = get_field('govuk_components_enable_component_blocks', 'option');
 		if (is_null($activeBlocks)) {
 			$activeBlocks = $this->blockController->getDefaultBlockOptions();
 		}
+		/** @var list<string> $activeBlocks */
 		$this->blockController->activateBlocks($activeBlocks);
 	}
 }
