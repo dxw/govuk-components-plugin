@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Psalm as a dev dependency
 - Block dependency functionality to BlockController to handle parent and ancestor relationships
 - GOV.UK style variations for the core/button block
 - GOV.UK Warning Text block for the block editor
