@@ -24,7 +24,7 @@ describe(\GovukComponents\BlockController::class, function () {
 
 	describe('->getAvailableBlockOptions()', function () {
 		it('returns a key-value array of the blocks, where the key is the block OPTION_NAME, and the value the DISPLAY_NAME', function () {
-			allow($this->blockController)->toReceive('hasParent');
+			allow($this->blockController)->toReceive('hasParent')->andReturn(false);
 			$result = $this->blockController->getAvailableBlockOptions();
 			expect($result)->toEqual([
 				'foo_bar' => 'Foo Bar',
@@ -46,7 +46,8 @@ describe(\GovukComponents\BlockController::class, function () {
 	describe('->activateBlocks()', function () {
 		it('calls the init() method of each block that has an option matching a value in the array it is given', function () {
 			allow($this->block1)->toReceive('init');
-			allow($this->blockController)->toReceive('hasParent');
+			allow($this->blockController)->toReceive('hasParent')->andReturn(false);
+			;
 
 			expect($this->block1)->toReceive('init')->once();
 			$this->blockController->activateBlocks([
@@ -56,7 +57,8 @@ describe(\GovukComponents\BlockController::class, function () {
 		it('does not call the init() method of blocks that do not have an option matching a value in the array it is given', function () {
 			allow($this->block1)->toReceive('init');
 			allow($this->block2)->toReceive('init');
-			allow($this->blockController)->toReceive('hasParent');
+			allow($this->blockController)->toReceive('hasParent')->andReturn(false);
+			;
 
 			expect($this->block1)->not->toReceive('init');
 			expect($this->block2)->toReceive('init')->once();
