@@ -15,7 +15,11 @@ class BlockController
 	{
 		$options = [];
 		foreach ($this->blocks as $block) {
-			$options[$block->getOptionName()] = $block->getDisplayName();
+			$displayName = $block->getDisplayName();
+
+			if (!$this->hasParent($displayName)) {
+				$options[$block->getOptionName()] = $displayName;
+			}
 		}
 		return $options;
 	}
@@ -35,6 +39,28 @@ class BlockController
 			if (in_array($block->getOptionName(), $blockOptionNames)) {
 				$block->init();
 			}
+
+			$displayName = $block->getDisplayName();
+
+			if ($this->hasParent($displayName)) {
+				$block->init();
+			}
 		}
+	}
+
+	public function hasParent($displayName)
+	{
+		$dirName = str_replace(' ', '', $displayName);
+
+		$path = plugin_dir_path(__FILE__) . '/Blocks/' . $dirName . '/src/block.json';
+
+		if (!file_exists($path)) {
+			return false;
+		}
+
+		$contents = file_get_contents($path);
+		$data = json_decode($contents, true);
+
+		return !empty($data['parent']) || !empty($data['ancestor']);
 	}
 }
