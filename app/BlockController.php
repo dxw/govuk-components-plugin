@@ -57,7 +57,7 @@ final class BlockController
 
 		$path = realpath(plugin_dir_path(__FILE__) . 'Blocks/' . $dirName . '/src/block.json');
 
-		if (!file_exists($path)) {
+		if ($path === false) {
 			return false;
 		}
 		/** @var string */
