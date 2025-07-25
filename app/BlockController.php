@@ -55,7 +55,7 @@ final class BlockController
 	{
 		$dirName = str_replace(' ', '', $displayName);
 
-		$path = plugin_dir_path(__FILE__) . '/Blocks/' . $dirName . '/src/block.json';
+		$path = realpath(plugin_dir_path(__FILE__) . 'Blocks/' . $dirName . '/src/block.json');
 
 		if (!file_exists($path)) {
 			return false;
