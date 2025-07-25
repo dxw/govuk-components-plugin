@@ -60,8 +60,11 @@ final class BlockController
 		if ($path === false) {
 			return false;
 		}
-		/** @var string */
+
 		$contents = file_get_contents($path);
+		if ($contents === false) {
+			return false;
+		}
 
 		/** @var array */
 		$data = json_decode($contents, true);

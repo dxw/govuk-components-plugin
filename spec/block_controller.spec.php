@@ -99,7 +99,13 @@ describe(\GovukComponents\BlockController::class, function () {
 
 		context('if the block config exist', function () {
 			beforeEach(function () {
-				allow('file_exists')->toBeCalled()->andReturn(true);
+				allow('realpath')->toBeCalled()->andReturn('C:\my-plugin\Blocks\TestBlock\src\block.json');
+			});
+
+			it('returns false if there is an error retrieving the data from block.json', function () {
+				allow('file_get_contents')->toBeCalled()->andReturn(false);
+
+				expect($this->blockController->hasParent('Custom Block'))->toBe(false);
 			});
 
 			it('returns true if the block has a parent', function () {
@@ -109,6 +115,8 @@ describe(\GovukComponents\BlockController::class, function () {
 
 				expect($this->blockController->hasParent('Custom Block'))->toBe(true);
 			});
+
+
 
 			it('returns false if the block does not have a parent', function () {
 				allow('file_get_contents')->toBeCalled()->andReturn('{}');
