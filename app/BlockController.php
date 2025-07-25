@@ -2,19 +2,22 @@
 
 namespace GovukComponents;
 
-class BlockController
+final class BlockController
 {
+	/** @var list<\GovukComponents\Blocks\iBlock> $blocks */
 	private $blocks;
 
 	public function __construct(array $blocks)
 	{
+		/** @var list<\GovukComponents\Blocks\iBlock> $blocks */
 		$this->blocks = $blocks;
 	}
 
-	public function getAvailableBlockOptions()
+	public function getAvailableBlockOptions(): array
 	{
 		$options = [];
 		foreach ($this->blocks as $block) {
+
 			$displayName = $block->getDisplayName();
 
 			if (!$this->hasParent($displayName)) {
@@ -24,7 +27,7 @@ class BlockController
 		return $options;
 	}
 
-	public function getDefaultBlockOptions()
+	public function getDefaultBlockOptions(): array
 	{
 		$options = [];
 		foreach ($this->blocks as $block) {
@@ -33,7 +36,7 @@ class BlockController
 		return $options;
 	}
 
-	public function activateBlocks($blockOptionNames)
+	public function activateBlocks(array $blockOptionNames): void
 	{
 		foreach ($this->blocks as $block) {
 			if (in_array($block->getOptionName(), $blockOptionNames)) {
@@ -48,18 +51,25 @@ class BlockController
 		}
 	}
 
-	public function hasParent($displayName)
+	public function hasParent(string $displayName): bool
 	{
 		$dirName = str_replace(' ', '', $displayName);
 
-		$path = plugin_dir_path(__FILE__) . '/Blocks/' . $dirName . '/src/block.json';
+		$path = realpath(plugin_dir_path(__FILE__) . 'Blocks/' . $dirName . '/src/block.json');
 
-		if (!file_exists($path)) {
+		if ($path === false) {
 			return false;
 		}
 
 		$contents = file_get_contents($path);
+		if ($contents === false) {
+			return false;
+		}
+
 		$data = json_decode($contents, true);
+		if (!is_array($data)) {
+			return false;
+		}
 
 		return !empty($data['parent']) || !empty($data['ancestor']);
 	}
