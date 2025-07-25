@@ -27,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- GitHub action to remove php 7.4 to ensure compatibility with dependencies
 - Category title and slug updated from 'Custom' / 'govuk-custom' to 'GOV.UK Design System' / 'govuk-components'
 
 ## [0.4.3] - 2024-09-09
