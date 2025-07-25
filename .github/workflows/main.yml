@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-24.04
     strategy:
       matrix:
-        php-versions: ['7.4', '8.2']
+        php-versions: ['8.2']
     steps:
       - uses: actions/checkout@v4
       - name: Setup PHP
@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-24.04
     strategy:
       matrix:
-        php-versions: ['7.4', '8.2']
+        php-versions: ['8.2']
     steps:
       - uses: actions/checkout@v4
       - name: Setup PHP
