@@ -66,8 +66,10 @@ final class BlockController
 			return false;
 		}
 
-		/** @var array */
 		$data = json_decode($contents, true);
+		if (!is_array($data)) {
+			return false;
+		}
 
 		return !empty($data['parent']) || !empty($data['ancestor']);
 	}
