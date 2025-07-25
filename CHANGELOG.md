@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- Old Notification Banner that requries ACF
 - PHP v7.4 from github action to ensure compatibility with dependencies
 - Old Button block that requires ACF
 - Old Warning Text block that requires ACF
