@@ -76,4 +76,6 @@ jobs:
             ${{ runner.os }}-composer-
       - name: Install dependencies
         run: composer install --no-interaction
+      - name: Skip checking node_modules
+        run: sed -i 's#<directory name="app/Blocks/\*/node_modules"/>##' psalm.xml
       - run: vendor/bin/psalm
