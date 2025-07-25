@@ -91,7 +91,7 @@ describe(\GovukComponents\BlockController::class, function () {
 
 		context('if the block config does not exist', function () {
 			it('returns false', function () {
-				allow('file_exists')->toBeCalled()->andReturn(false);
+				allow('realpath')->toBeCalled()->andReturn(false);
 
 				expect($this->blockController->hasParent('Custom Block'))->toBe(false);
 			});
