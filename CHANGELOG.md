@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- PHP v7.4 from github action to ensure compatibility with dependencies
 - Old Button block that requires ACF
 - Old Warning Text block that requires ACF
 - Old Inset Text block that requries ACF
@@ -27,7 +28,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- GitHub action to remove php 7.4 to ensure compatibility with dependencies
 - Category title and slug updated from 'Custom' / 'govuk-custom' to 'GOV.UK Design System' / 'govuk-components'
 
 ## [0.4.3] - 2024-09-09
