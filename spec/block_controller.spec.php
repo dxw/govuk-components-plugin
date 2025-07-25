@@ -108,6 +108,13 @@ describe(\GovukComponents\BlockController::class, function () {
 				expect($this->blockController->hasParent('Custom Block'))->toBe(false);
 			});
 
+			it('returns false if the data cannot be decoded or there is an error', function () {
+				allow('file_get_contents')->toBeCalled()->andReturn('{}');
+				allow('json_decode')->toBeCalled()->andReturn(null);
+
+				expect($this->blockController->hasParent('Custom Block'))->toBe(false);
+			});
+
 			it('returns true if the block has a parent', function () {
 				allow('file_get_contents')->toBeCalled()->andReturn('{
 					"parent": [ "parent-block" ]
@@ -115,8 +122,6 @@ describe(\GovukComponents\BlockController::class, function () {
 
 				expect($this->blockController->hasParent('Custom Block'))->toBe(true);
 			});
-
-
 
 			it('returns false if the block does not have a parent', function () {
 				allow('file_get_contents')->toBeCalled()->andReturn('{}');
