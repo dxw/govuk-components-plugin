@@ -4,7 +4,7 @@ namespace GovukComponents\Blocks;
 
 interface iBlock
 {
-	public function init();
+	public function init(): void;
 
 	public function getDisplayName(): string;
 
