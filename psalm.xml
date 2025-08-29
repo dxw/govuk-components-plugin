@@ -10,7 +10,7 @@
 >
     <projectFiles>
         <directory name="app"/>
-        <ignoreFiles>
+        <ignoreFiles allowMissingFiles="true">
             <file name="app/di.php"/>
             <file name="vendor.phar"/>
             <directory name="app/Blocks/*/node_modules"/>
