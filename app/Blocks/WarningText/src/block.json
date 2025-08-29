@@ -17,6 +17,6 @@
         }
     },
     "icon": "warning",
-	"textdomain": "govuk-components-plugin",
+	"textdomain": "govuk-components",
 	"editorScript": "file:./index.js"
 }
