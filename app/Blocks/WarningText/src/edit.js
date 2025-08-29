@@ -1,4 +1,4 @@
-import { __ } from '@wordpress/i18n';
+import { __, _x } from '@wordpress/i18n';
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 import BlockInspector from './components/InspectorPanels/BockInspector';
 
@@ -14,11 +14,11 @@ export default function Edit({ attributes, setAttributes }) {
             <div {...blockProps}>
                 <span class='govuk-warning-text__icon' aria-hidden='true'>!</span>
                 <strong className='govuk-warning-text__text'>
-                    <span class='govuk-visually-hidden'>Warning</span>
+                    <span class='govuk-visually-hidden'>{_x('Warning', 'screen reader prefix','govuk-components')}</span>
                     <RichText
                         value={attributes.content}
                         onChange={(value) => setAttributes({ content: value })}
-                        placeholder={__('Add text about your warning here.')}
+                        placeholder={__('Add text about your warning here.', 'govuk-components')}
                         allowedFormats={['bold']}
                     />
                 </strong>
