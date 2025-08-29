@@ -1,6 +1,6 @@
 import { __, _x } from '@wordpress/i18n';
 import { useBlockProps, RichText } from '@wordpress/block-editor';
-import BlockInspector from './components/InspectorPanels/BockInspector';
+import BlockInspector from './components/InspectorPanels/BlockInspector';
 
 export default function Edit({ attributes, setAttributes }) {
 
