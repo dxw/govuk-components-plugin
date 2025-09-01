@@ -110,8 +110,26 @@ final class Options implements \Dxw\Iguana\Registerable
 						'name' => 'govuk_components_phase_banner_feedback_url',
 						'type' => 'url',
 						'instructions' => 'Enter the URL for the feedback page.',
-						'required' => 1,
-						'placeholder' => 'https://www.example.gov.uk/feedback',
+						'required' => 0,
+						'placeholder' => 'https://www.example.com/feedback',
+						'conditional_logic' => [
+							[
+								[
+									'field' => 'govuk_components_phase_banner_phase',
+									'operator' => '!=',
+									'value' => 'off',
+								],
+							],
+						],
+					],
+					[
+						'key' => 'govuk_components_phase_banner_feedback_email',
+						'label' => 'Feedback Email Address',
+						'name' => 'govuk_components_phase_banner_feedback_email',
+						'type' => 'email',
+						'instructions' => 'Enter the email address for feedback.',
+						'required' => 0,
+						'placeholder' => 'feedback@example.com',
 						'conditional_logic' => [
 							[
 								[
