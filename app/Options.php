@@ -22,6 +22,9 @@ final class Options implements \Dxw\Iguana\Registerable
 
 		/** @psalm-suppress HookNotFound */
 		add_action('acf/init', [$this, 'apply']);
+
+		/** @psalm-suppress HookNotFound */
+		add_filter('acf/validate_save_post', [$this, 'validatePhaseBannerOptions']);
 	}
 
 	public function addPage(): void
@@ -172,5 +175,21 @@ final class Options implements \Dxw\Iguana\Registerable
 		}
 		/** @var list<string> $activeBlocks */
 		$this->blockController->activateBlocks($activeBlocks);
+	}
+
+	public function validatePhaseBannerOptions(): void
+	{
+		$phase = isset($_POST['acf']['govuk_components_phase_banner_phase']) ? $_POST['acf']['govuk_components_phase_banner_phase'] : '';
+		$feedback_url = isset($_POST['acf']['govuk_components_phase_banner_feedback_url']) ? $_POST['acf']['govuk_components_phase_banner_feedback_url'] : '';
+		$feedback_email = isset($_POST['acf']['govuk_components_phase_banner_feedback_email']) ? $_POST['acf']['govuk_components_phase_banner_feedback_email'] : '';
+
+		if (($phase === 'alpha' || $phase === 'beta')) {
+			if (empty($feedback_url) && empty($feedback_email)) {
+				acf_add_validation_error('acf[govuk_components_phase_banner_phase]', 'Please provide EITHER a URL or an email address for feedback.');
+			}
+			if (!empty($feedback_url) && !empty($feedback_email)) {
+				acf_add_validation_error('acf[govuk_components_phase_banner_phase]', 'Please provide EITHER a URL or an email address for feedback, but not both.');
+			}
+		}
 	}
 }

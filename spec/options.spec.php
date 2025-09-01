@@ -20,7 +20,9 @@ describe(\GovukComponents\Options::class, function () {
 	describe('->register()', function () {
 		it('adds the actions', function () {
 			allow('add_action')->toBeCalled();
+			allow('add_filter')->toBeCalled();
 			expect('add_action')->toBeCalled()->times(3);
+			expect('add_filter')->toBeCalled()->once();
 			expect('add_action')->toBeCalled()->with('acf/init', [$this->options, 'addPage']);
 			expect('add_action')->toBeCalled()->with('acf/init', [$this->options, 'registerOptions']);
 			expect('add_action')->toBeCalled()->with('acf/init', [$this->options, 'apply']);
@@ -89,6 +91,95 @@ describe(\GovukComponents\Options::class, function () {
 					1 => 'default_block_2'
 				]);
 				$this->options->apply();
+			});
+		});
+	});
+
+	describe('->validatePhaseBannerOptions()', function () {
+		context('the POST request contains no relevant information', function () {
+			it('does nothing', function () {
+				global $_POST;
+				$_POST = [];
+				expect('acf_add_validation_error')->not->toBeCalled();
+				$this->options->validatePhaseBannerOptions();
+				unset($_POST);
+			});
+		});
+		context('the phase banner is off', function () {
+			it('does nothing', function () {
+				global $_POST;
+				$_POST = [
+					'acf' => [
+						'govuk_components_phase_banner_phase' => 'off',
+						'govuk_components_phase_banner_feedback_url' => '',
+						'govuk_components_phase_banner_feedback_email' => ''
+					]
+				];
+				expect('acf_add_validation_error')->not->toBeCalled();
+				$this->options->validatePhaseBannerOptions();
+				unset($_POST);
+			});
+		});
+		context('the phase banner is on and exactly one feedback mechanism has been set', function () {
+			it('does nothing', function () {
+				global $_POST;
+				$_POST = [
+					'acf' => [
+						'govuk_components_phase_banner_phase' => 'alpha',
+						'govuk_components_phase_banner_feedback_url' => 'https://example.com',
+						'govuk_components_phase_banner_feedback_email' => ''
+					]
+				];
+				allow('acf_add_validation_error')->toBeCalled();
+				expect('acf_add_validation_error')->not->toBeCalled();
+				$this->options->validatePhaseBannerOptions();
+				unset($_POST);
+			});
+			it('does nothing', function () {
+				global $_POST;
+				$_POST = [
+					'acf' => [
+						'govuk_components_phase_banner_phase' => 'beta',
+						'govuk_components_phase_banner_feedback_url' => '',
+						'govuk_components_phase_banner_feedback_email' => 'admin@example.com'
+					]
+				];
+				allow('acf_add_validation_error')->toBeCalled();
+				expect('acf_add_validation_error')->not->toBeCalled();
+				$this->options->validatePhaseBannerOptions();
+				unset($_POST);
+			});
+		});
+		context('the phase banner is on but no feedback mechanism has been set', function () {
+			it('generates a validation error', function () {
+				global $_POST;
+				$_POST = [
+					'acf' => [
+						'govuk_components_phase_banner_phase' => 'alpha',
+						'govuk_components_phase_banner_feedback_url' => '',
+						'govuk_components_phase_banner_feedback_email' => ''
+					]
+				];
+				allow('acf_add_validation_error')->toBeCalled();
+				expect('acf_add_validation_error')->toBeCalled()->once();
+				$this->options->validatePhaseBannerOptions();
+				unset($_POST);
+			});
+		});
+		context('the phase banner is on and both feedback mechanisms hav been set', function () {
+			it('generates a validation error', function () {
+				global $_POST;
+				$_POST = [
+					'acf' => [
+						'govuk_components_phase_banner_phase' => 'beta',
+						'govuk_components_phase_banner_feedback_url' => 'http://example.com',
+						'govuk_components_phase_banner_feedback_email' => 'admin@example.com'
+					]
+				];
+				allow('acf_add_validation_error')->toBeCalled();
+				expect('acf_add_validation_error')->toBeCalled()->once();
+				$this->options->validatePhaseBannerOptions();
+				unset($_POST);
 			});
 		});
 	});
