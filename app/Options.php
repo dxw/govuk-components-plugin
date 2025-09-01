@@ -25,6 +25,23 @@ final class Options implements \Dxw\Iguana\Registerable
 
 		/** @psalm-suppress HookNotFound */
 		add_filter('acf/validate_save_post', [$this, 'validatePhaseBannerOptions']);
+
+		add_filter('plugin_action_links_govuk-components-plugin/index.php', [$this, 'addSettingsLink']);
+	}
+
+	/**
+	 * Adds a settings link to the plugin on the plugins page.
+	 * @param string[] $actions
+	 * @return string[]
+	 */
+	public function addSettingsLink(array $actions): array
+	{
+		$link = 'Settings';
+		/** @var string */
+		$url = admin_url('options-general.php?page=acf-options-gov-uk-components');
+
+		array_unshift($actions, sprintf('<a href="%s">%s</a>', esc_url($url), esc_html($link)));
+		return $actions;
 	}
 
 	public function addPage(): void

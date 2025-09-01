@@ -22,13 +22,31 @@ describe(\GovukComponents\Options::class, function () {
 			allow('add_action')->toBeCalled();
 			allow('add_filter')->toBeCalled();
 			expect('add_action')->toBeCalled()->times(3);
-			expect('add_filter')->toBeCalled()->once();
+			expect('add_filter')->toBeCalled()->times(2);
 			expect('add_action')->toBeCalled()->with('acf/init', [$this->options, 'addPage']);
 			expect('add_action')->toBeCalled()->with('acf/init', [$this->options, 'registerOptions']);
 			expect('add_action')->toBeCalled()->with('acf/init', [$this->options, 'apply']);
+			expect('add_filter')->toBeCalled()->with('acf/validate_save_post', [$this->options, 'validatePhaseBannerOptions']);
+			expect('add_filter')->toBeCalled()->with('plugin_action_links_govuk-components-plugin/index.php', [$this->options, 'addSettingsLink']);
+
 			$this->options->register();
 		});
 	});
+
+	describe('->addSettingsLink()', function () {
+		it('adds the link to the settings page page', function () {
+			allow('admin_url')->toBeCalled()->andReturn('https://example.com/wp-admin/acf_get_options_page_url');
+			allow('esc_html')->toBeCalled()->andRun(function ($val) {
+				return $val;
+			});
+			allow('esc_url')->toBeCalled()->andRun(function ($val) {
+				return $val;
+			});
+			$result = $this->options->addSettingsLink([]);
+			expect($result)->toEqual(['<a href="https://example.com/wp-admin/acf_get_options_page_url">Settings</a>']);
+		});
+	});
+
 
 	describe('->addPage()', function () {
 		it('adds the options page', function () {
