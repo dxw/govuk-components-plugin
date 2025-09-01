@@ -84,6 +84,64 @@ final class Options implements \Dxw\Iguana\Registerable
 				'description' => '',
 			]);
 
+			acf_add_local_field_group([
+				'key' => 'govuk_phase_banner_group',
+				'title' => 'Phase Banner Settings',
+				'fields' => [
+					[
+						'key' => 'govuk_components_phase_banner_phase',
+						'label' => 'Service Phase',
+						'name' => 'govuk_components_phase_banner_phase',
+						'type' => 'radio',
+						'instructions' => 'Select the current development phase of the service.',
+						'required' => 1,
+						'choices' => [
+							'off' => 'N/A - do not display banner',
+							'alpha' => 'Alpha',
+							'beta' => 'Beta',
+						],
+						'default_value' => 'off',
+						'layout' => 'vertical',
+						'return_format' => 'Value',
+					],
+					[
+						'key' => 'govuk_components_phase_banner_feedback_url',
+						'label' => 'Feedback URL',
+						'name' => 'govuk_components_phase_banner_feedback_url',
+						'type' => 'url',
+						'instructions' => 'Enter the URL for the feedback page.',
+						'required' => 1,
+						'placeholder' => 'https://www.example.gov.uk/feedback',
+						'conditional_logic' => [
+							[
+								[
+									'field' => 'govuk_components_phase_banner_phase',
+									'operator' => '!=',
+									'value' => 'off',
+								],
+							],
+						],
+					],
+				],
+				'location' => [
+					[
+						[
+							'param' => 'options_page',
+							'operator' => '==',
+							'value' => 'acf-options-gov-uk-components',
+						],
+					],
+				],
+				'menu_order' => 1,
+				'position' => 'normal',
+				'style' => 'default',
+				'label_placement' => 'top',
+				'instruction_placement' => 'label',
+				'hide_on_screen' => '',
+				'active' => true,
+				'description' => '',
+			]);
+
 		endif;
 	}
 
