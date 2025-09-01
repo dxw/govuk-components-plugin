@@ -40,17 +40,40 @@ describe(\GovukComponents\Components\PhaseBanner::class, function () {
 				expect($result)->toEqual($expected);
 			});
 		});
-		context('The phase banner is switched on in options', function () {
+		context('The phase banner is switched on in options with a feedback URL', function () {
+			it('renders the phase banner', function () {
+				allow('get_field')->toBecalled()->andReturn(
+					'beta',
+					'https://example.com',
+					''
+				);
+				$expected = <<<HTML
+<div class="govuk-phase-banner">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">BETA</strong>
+        <span class="govuk-phase-banner__text">This is a new service. Help us improve it and <a class="govuk-link" href="https://example.com" target="_blank">give your feedback (opens in a new tab)</a>.</span>
+    </p>
+</div>
+
+HTML;
+				ob_start();
+				$this->banner->displayPhaseBanner();
+				$result = ob_get_clean();
+				expect($result)->toEqual($expected);
+			});
+		});
+		context('The phase banner is switched on in options with a feedback email address', function () {
 			it('renders the phase banner', function () {
 				allow('get_field')->toBecalled()->andReturn(
 					'alpha',
-					'https://example.com'
+					'',
+					'admin@example.com'
 				);
 				$expected = <<<HTML
 <div class="govuk-phase-banner">
     <p class="govuk-phase-banner__content">
         <strong class="govuk-tag govuk-phase-banner__content__tag">ALPHA</strong>
-        <span class="govuk-phase-banner__text">This is a new service - your <a class="govuk-link" href="https://example.com">feedback</a> will help us to improve it.</span>
+        <span class="govuk-phase-banner__text">This is a new service. Help us improve it and <a class="govuk-link" href="mailto:admin@example.com" >give your feedback by email</a>.</span>
     </p>
 </div>
 
