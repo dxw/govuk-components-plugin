@@ -12,8 +12,9 @@ describe(\GovukComponents\Components\PhaseBanner::class, function () {
 	describe('->register()', function () {
 		it('adds the actions', function () {
 			allow('add_action')->toBeCalled();
-			expect('add_action')->toBeCalled()->once();
+			expect('add_action')->toBeCalled()->times(2);
 			expect('add_action')->toBeCalled()->with('dxw_flatpack_before_header', [$this->banner, 'displayPhaseBanner']);
+			expect('add_action')->toBeCalled()->with('wp_body_open', [$this->banner, 'displayPhaseBanner']);
 			$this->banner->register();
 		});
 	});
