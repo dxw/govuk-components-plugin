@@ -9,6 +9,7 @@ final class PhaseBanner implements \Dxw\Iguana\Registerable
 	{
 		/** @psalm-suppress HookNotFound */
 		add_action('dxw_flatpack_before_header', [$this, 'displayPhaseBanner'], 10, 0);
+		add_action('wp_body_open', [$this, 'displayPhaseBanner'], 10, 0);
 	}
 
 	public function displayPhaseBanner(): void
