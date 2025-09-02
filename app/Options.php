@@ -22,6 +22,26 @@ final class Options implements \Dxw\Iguana\Registerable
 
 		/** @psalm-suppress HookNotFound */
 		add_action('acf/init', [$this, 'apply']);
+
+		/** @psalm-suppress HookNotFound */
+		add_filter('acf/validate_save_post', [$this, 'validatePhaseBannerOptions']);
+
+		add_filter('plugin_action_links_govuk-components-plugin/index.php', [$this, 'addSettingsLink']);
+	}
+
+	/**
+	 * Adds a settings link to the plugin on the plugins page.
+	 * @param string[] $actions
+	 * @return string[]
+	 */
+	public function addSettingsLink(array $actions): array
+	{
+		$link = 'Settings';
+		/** @var string */
+		$url = admin_url('options-general.php?page=acf-options-gov-uk-components');
+
+		array_unshift($actions, sprintf('<a href="%s">%s</a>', esc_url($url), esc_html($link)));
+		return $actions;
 	}
 
 	public function addPage(): void
@@ -84,6 +104,82 @@ final class Options implements \Dxw\Iguana\Registerable
 				'description' => '',
 			]);
 
+			acf_add_local_field_group([
+				'key' => 'govuk_phase_banner_group',
+				'title' => 'Phase Banner Settings',
+				'fields' => [
+					[
+						'key' => 'govuk_components_phase_banner_phase',
+						'label' => 'Service Phase',
+						'name' => 'govuk_components_phase_banner_phase',
+						'type' => 'radio',
+						'instructions' => 'Select the current development phase of the service.',
+						'required' => 1,
+						'choices' => [
+							'off' => 'N/A - do not display banner',
+							'alpha' => 'Alpha',
+							'beta' => 'Beta',
+						],
+						'default_value' => 'off',
+						'layout' => 'vertical',
+						'return_format' => 'Value',
+					],
+					[
+						'key' => 'govuk_components_phase_banner_feedback_url',
+						'label' => 'Feedback URL',
+						'name' => 'govuk_components_phase_banner_feedback_url',
+						'type' => 'url',
+						'instructions' => 'Enter the URL for the feedback page.',
+						'required' => 0,
+						'placeholder' => 'https://www.example.com/feedback',
+						'conditional_logic' => [
+							[
+								[
+									'field' => 'govuk_components_phase_banner_phase',
+									'operator' => '!=',
+									'value' => 'off',
+								],
+							],
+						],
+					],
+					[
+						'key' => 'govuk_components_phase_banner_feedback_email',
+						'label' => 'Feedback Email Address',
+						'name' => 'govuk_components_phase_banner_feedback_email',
+						'type' => 'email',
+						'instructions' => 'Enter the email address for feedback.',
+						'required' => 0,
+						'placeholder' => 'feedback@example.com',
+						'conditional_logic' => [
+							[
+								[
+									'field' => 'govuk_components_phase_banner_phase',
+									'operator' => '!=',
+									'value' => 'off',
+								],
+							],
+						],
+					],
+				],
+				'location' => [
+					[
+						[
+							'param' => 'options_page',
+							'operator' => '==',
+							'value' => 'acf-options-gov-uk-components',
+						],
+					],
+				],
+				'menu_order' => 1,
+				'position' => 'normal',
+				'style' => 'default',
+				'label_placement' => 'top',
+				'instruction_placement' => 'label',
+				'hide_on_screen' => '',
+				'active' => true,
+				'description' => '',
+			]);
+
 		endif;
 	}
 
@@ -96,5 +192,21 @@ final class Options implements \Dxw\Iguana\Registerable
 		}
 		/** @var list<string> $activeBlocks */
 		$this->blockController->activateBlocks($activeBlocks);
+	}
+
+	public function validatePhaseBannerOptions(): void
+	{
+		$phase = isset($_POST['acf']['govuk_components_phase_banner_phase']) ? $_POST['acf']['govuk_components_phase_banner_phase'] : '';
+		$feedback_url = isset($_POST['acf']['govuk_components_phase_banner_feedback_url']) ? $_POST['acf']['govuk_components_phase_banner_feedback_url'] : '';
+		$feedback_email = isset($_POST['acf']['govuk_components_phase_banner_feedback_email']) ? $_POST['acf']['govuk_components_phase_banner_feedback_email'] : '';
+
+		if (($phase === 'alpha' || $phase === 'beta')) {
+			if (empty($feedback_url) && empty($feedback_email)) {
+				acf_add_validation_error('acf[govuk_components_phase_banner_phase]', 'Please provide EITHER a URL or an email address for feedback.');
+			}
+			if (!empty($feedback_url) && !empty($feedback_email)) {
+				acf_add_validation_error('acf[govuk_components_phase_banner_phase]', 'Please provide EITHER a URL or an email address for feedback, but not both.');
+			}
+		}
 	}
 }

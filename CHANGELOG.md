@@ -16,6 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GOV.UK Accordion Row block for the block editor
 - GOV.UK Accordion block for the block editor
 - GOV.UK Details block for the block editor
+- GOV.UK Phase banner component and settings
+- Add link to components options page from plugins page
 
 ### Removed
 
