@@ -72,7 +72,7 @@ describe(\GovukComponents\Options::class, function () {
 			]);
 			expect($this->blockController)->toReceive('getDefaultBlockOptions')->once();
 			allow('acf_add_local_field_group')->toBeCalled();
-			expect('acf_add_local_field_group')->toBeCalled()->times(2);
+			expect('acf_add_local_field_group')->toBeCalled()->times(3);
 			expect('acf_add_local_field_group')->toBeCalled()->with(Arg::toBeAn('array'));
 			$this->options->registerOptions();
 		});

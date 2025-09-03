@@ -180,6 +180,72 @@ final class Options implements \Dxw\Iguana\Registerable
 				'description' => '',
 			]);
 
+			acf_add_local_field_group([
+				'key' => 'govuk_components_notification_banner_group',
+				'title' => 'Notification Banner Settings',
+				'fields' => [
+					[
+						'key' => 'govuk_components_notification_banner_show',
+						'label' => 'Show Notification Banner',
+						'name' => 'govuk_components_notification_banner_show',
+						'type' => 'radio',
+						'instructions' => 'Choose to show or hide the notification banner on all pages.',
+						'required' => 1,
+						'choices' => [
+							'off' => 'Banner off (default)',
+							'on' => 'Banner on',
+						],
+						'default_value' => 'off',
+						'layout' => 'vertical',
+						'return_format' => 'Value',
+					],
+					[
+						'key' => 'govuk_components_notification_banner_content',
+						'label' => 'Content',
+						'name' => 'govuk_components_notification_banner_content',
+						'type' => 'wysiwyg',
+						'instructions' => 'Enter rich text content for the banner. You can use headings, links, and other HTML here.',
+						'required' => 0,
+						'conditional_logic' => [
+							[
+								[
+									'field' => 'govuk_components_notification_banner_show',
+									'operator' => '!=',
+									'value' => 'off',
+								],
+							],
+						],
+						'wrapper' => [
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						],
+						'default_value' => '',
+						'tabs' => 'all',
+						'toolbar' => 'full',
+						'media_upload' => 1,
+						'delay' => 0,
+					],
+				],
+				'location' => [
+					[
+						[
+							'param' => 'options_page',
+							'operator' => '==',
+							'value' => 'acf-options-gov-uk-components',
+						],
+					],
+				],
+				'menu_order' => 2,
+				'position' => 'normal',
+				'style' => 'default',
+				'label_placement' => 'top',
+				'instruction_placement' => 'label',
+				'hide_on_screen' => '',
+				'active' => 1,
+				'description' => 'A field group for global site content.',
+			]);
+
 		endif;
 	}
 
