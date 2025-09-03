@@ -19,14 +19,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GOV.UK Phase banner component and settings
 - Add link to components options page from plugins page
 - Phase banner appears in response to wp_body_open hook
+- Wording above the block editor options has been clarified
 
 ### Removed
 
-- Old Notification Banner that requries ACF
+- Old Notification Banner that requires ACF
 - PHP v7.4 from github action to ensure compatibility with dependencies
 - Old Button block that requires ACF
 - Old Warning Text block that requires ACF
-- Old Inset Text block that requries ACF
+- Old Inset Text block that requires ACF
 - Old Accordion block that requires ACF
 - Old Details block that requires ACF
 - `aria-labelledby` attribute from `<div>` element with no specified role.

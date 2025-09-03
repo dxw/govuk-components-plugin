@@ -61,7 +61,7 @@ final class Options implements \Dxw\Iguana\Registerable
 
 			acf_add_local_field_group([
 				'key' => 'group_60117c47385e6',
-				'title' => 'Options',
+				'title' => 'Choose which GOV.UK Blocks to Make Available',
 				'fields' => [
 					[
 						'key' => 'field_60117c7564efc',
