@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GOV.UK Phase banner component and settings
 - Add link to components options page from plugins page
 - Phase banner appears in response to wp_body_open hook
+- Wording above the block editor options has been clarified
 
 ### Removed
 
