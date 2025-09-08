@@ -12,6 +12,16 @@ const TEMPLATE = [
 	]
 ]
 
+const getAllowedBlocks = () =>
+	wp.hooks.applyFilters(
+		'govukComponents.accordionRow.allowedBlocks',
+		[
+			'core/paragraph',
+			'core/list',
+			'core/heading',
+		]
+	);
+
 export default function Edit( { attributes, setAttributes, clientId, context } ) {
 
 	const { header, isSelected } = attributes;
@@ -21,7 +31,7 @@ export default function Edit( { attributes, setAttributes, clientId, context } )
 	const toggleDisplay = () => {
 		setAttributes({isSelected: !isSelected})
 	}
-	
+
 	const displayStatus = () => {
 		return isSelected ? 'block' : 'none';
 	}
@@ -35,13 +45,10 @@ export default function Edit( { attributes, setAttributes, clientId, context } )
 	});
 
 	const innerBlocksProps = useInnerBlocksProps(
-		blockProps, 
+		blockProps,
 		{
-		template: TEMPLATE,
-		allowedBlocks: [
-			"core/paragraph",
-			"core/list"
-			]
+			template: TEMPLATE,
+			allowedBlocks: getAllowedBlocks()
 		}
 	);
 
@@ -57,7 +64,7 @@ export default function Edit( { attributes, setAttributes, clientId, context } )
 							allowedFormats={ [] }
 							withoutInteractiveFormatting
 							value={ header }
-							onChange={ ( newHeader ) => 
+							onChange={ ( newHeader ) =>
 								setAttributes( { header: newHeader })
 							}
 						/>
@@ -70,7 +77,7 @@ export default function Edit( { attributes, setAttributes, clientId, context } )
 					</span>
 				</h2>
     		</div>
-			
+
 			<div className="govuk-accordion__section-content" style={{display: displayStatus()}}>
 				<div className='govuk-body'>
 					{ innerBlocksProps.children }
