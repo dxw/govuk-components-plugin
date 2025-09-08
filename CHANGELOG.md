@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- A hook to allow themes and plugins to extend the Accordion Row's allowed blocks
 - Psalm as a dev dependency
 - Block dependency functionality to BlockController to handle parent and ancestor relationships
 - GOV.UK style variations for the core/button block
