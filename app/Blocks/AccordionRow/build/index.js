@@ -38,7 +38,7 @@ const TEMPLATE = [["core/paragraph", {
   placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Add text, or type / to choose a block'),
   align: 'left'
 }]];
-const getAllowedBlocks = () => wp.hooks.applyFilters('govukComponents.accordionRow.allowedBlocks', ['core/paragraph', 'core/list']);
+const getAllowedBlocks = () => wp.hooks.applyFilters('govukComponents.accordionRow.allowedBlocks', ['core/paragraph', 'core/list', 'core/heading']);
 function Edit({
   attributes,
   setAttributes,

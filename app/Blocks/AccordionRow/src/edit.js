@@ -18,6 +18,7 @@ const getAllowedBlocks = () =>
 		[
 			'core/paragraph',
 			'core/list',
+			'core/heading',
 		]
 	);
 
