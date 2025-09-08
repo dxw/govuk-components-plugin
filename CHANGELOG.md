@@ -35,6 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Allow _Heading_ blocks within accordion rows
 - Category title and slug updated from 'Custom' / 'govuk-custom' to 'GOV.UK Design System' / 'govuk-components'
 
 ## [0.4.3] - 2024-09-09
