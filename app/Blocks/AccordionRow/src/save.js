@@ -1,7 +1,6 @@
 import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor';
 
 export default function save( { attributes } ) {
-
 	const header = attributes.header ? attributes.header : '';
 
 	const { index } = attributes;

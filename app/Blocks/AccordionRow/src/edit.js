@@ -25,7 +25,7 @@ const getAllowedBlocks = () =>
 
 export default function Edit( { attributes, setAttributes, clientId, context } ) {
 
-	const { header, isSelected } = attributes;
+	const { header, isSelected, index } = attributes;
 
 	const showAll = context['govuk-components/showAll'];
 
@@ -53,12 +53,18 @@ export default function Edit( { attributes, setAttributes, clientId, context } )
 		}
 	);
 
-	const index = useSelect( ( select ) => {
+	const setIndex = useSelect( ( select ) => {
 		const { getBlockOrder, getBlockRootClientId } = select( blockEditorStore );
 		const rootId = getBlockRootClientId( clientId );
 		const order = getBlockOrder( rootId );
-		return order.indexOf( clientId ) + 1;
+		const indexValue = order.indexOf( clientId ) + 1;
+		return indexValue;
+		
 	}, [ clientId ] );
+
+	useEffect(() => {
+		setAttributes({index: setIndex})
+	}, [setIndex])
 
 	return (
 		<>

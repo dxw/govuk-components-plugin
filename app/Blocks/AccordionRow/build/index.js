@@ -50,7 +50,8 @@ function Edit({
 }) {
   const {
     header,
-    isSelected
+    isSelected,
+    index
   } = attributes;
   const showAll = context['govuk-components/showAll'];
   const toggleDisplay = () => {
@@ -73,15 +74,21 @@ function Edit({
     template: TEMPLATE,
     allowedBlocks: getAllowedBlocks()
   });
-  const index = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.useSelect)(select => {
+  const setIndex = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.useSelect)(select => {
     const {
       getBlockOrder,
       getBlockRootClientId
     } = select(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.store);
     const rootId = getBlockRootClientId(clientId);
     const order = getBlockOrder(rootId);
-    return order.indexOf(clientId) + 1;
+    const indexValue = order.indexOf(clientId) + 1;
+    return indexValue;
   }, [clientId]);
+  (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
+    setAttributes({
+      index: setIndex
+    });
+  }, [setIndex]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       ...innerBlocksProps,
