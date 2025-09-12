@@ -20,6 +20,9 @@
 		"isSelected": {
 			"type": "boolean",
 			"default": false
+		},
+		"index": {
+			"type": "number"
 		}
 	},
 	"usesContext": [ "govuk-components/showAll" ],
