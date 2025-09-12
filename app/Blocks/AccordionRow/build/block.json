@@ -22,6 +22,9 @@
     "isSelected": {
       "type": "boolean",
       "default": false
+    },
+    "index": {
+      "type": "number"
     }
   },
   "usesContext": [

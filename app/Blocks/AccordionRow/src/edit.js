@@ -1,4 +1,5 @@
 import { __ } from '@wordpress/i18n';
+import { useSelect } from '@wordpress/data';
 import { store as blockEditorStore, useBlockProps, useInnerBlocksProps, RichText } from '@wordpress/block-editor';
 import { useEffect, useState } from 'react';
 
@@ -52,12 +53,19 @@ export default function Edit( { attributes, setAttributes, clientId, context } )
 		}
 	);
 
+	const index = useSelect( ( select ) => {
+		const { getBlockOrder, getBlockRootClientId } = select( blockEditorStore );
+		const rootId = getBlockRootClientId( clientId );
+		const order = getBlockOrder( rootId );
+		return order.indexOf( clientId ) + 1;
+	}, [ clientId ] );
+
 	return (
 		<>
 		<div { ...innerBlocksProps }>
 			<div className="govuk-accordion__section-header">
 				<h2 className="govuk-accordion__section-heading">
-					<span className="govuk-accordion__section-button">
+					<span className="govuk-accordion__section-button" id={`accordion-default-heading-${index}`}>
 						<RichText
 							aria-label={ __( 'Write section header' ) }
 							placeholder={ __( 'Write section header…' ) }
@@ -78,7 +86,7 @@ export default function Edit( { attributes, setAttributes, clientId, context } )
 				</h2>
     		</div>
 
-			<div className="govuk-accordion__section-content" style={{display: displayStatus()}}>
+			<div id={`accordion-default-content-${index}`} className="govuk-accordion__section-content" style={{display: displayStatus()}}>
 				<div className='govuk-body'>
 					{ innerBlocksProps.children }
 				</div>
