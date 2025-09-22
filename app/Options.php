@@ -27,6 +27,12 @@ final class Options implements \Dxw\Iguana\Registerable
 		add_filter('acf/validate_save_post', [$this, 'validatePhaseBannerOptions']);
 
 		add_filter('plugin_action_links_govuk-components-plugin/index.php', [$this, 'addSettingsLink']);
+
+		/** @psalm-suppress HookNotFound */
+		add_filter('acf/load_field/name=govuk_components_notification_banner_border_colour', [$this, 'addDefaultThemeColours']);
+		/** @psalm-suppress HookNotFound */
+		add_filter('acf/load_field/name=govuk_components_notification_banner_heading_text_colour', [$this, 'addDefaultThemeColours']);
+
 	}
 
 	/**
@@ -256,6 +262,60 @@ final class Options implements \Dxw\Iguana\Registerable
 						'media_upload' => 1,
 						'delay' => 0,
 					],
+					[
+						'key' => 'govuk_components_notification_banner_border_colour',
+						'label' => 'Border colour',
+						'name' => 'govuk_components_notification_banner_border_colour',
+						'type' => 'select',
+						'instructions' => 'Select border colour for the notification banner.',
+						'required' => 1,
+						'conditional_logic' => [
+							[
+								[
+									'field' => 'govuk_components_notification_banner_show',
+									'operator' => '!=',
+									'value' => 'off',
+								],
+							],
+						],
+						'wrapper' => [
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						],
+						'default_value' => '',
+						'tabs' => 'all',
+						'toolbar' => 'full',
+						'media_upload' => 1,
+						'delay' => 0,
+					],
+					[
+						'key' => 'govuk_components_notification_banner_heading_text_colour',
+						'label' => 'Heading text colour',
+						'name' => 'govuk_components_notification_banner_heading_text_colour',
+						'type' => 'select',
+						'instructions' => 'Select heading text colour for the notification banner.',
+						'required' => 1,
+						'conditional_logic' => [
+							[
+								[
+									'field' => 'govuk_components_notification_banner_show',
+									'operator' => '!=',
+									'value' => 'off',
+								],
+							],
+						],
+						'wrapper' => [
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						],
+						'default_value' => '',
+						'tabs' => 'all',
+						'toolbar' => 'full',
+						'media_upload' => 1,
+						'delay' => 0,
+					],
 				],
 				'location' => [
 					[
@@ -304,5 +364,32 @@ final class Options implements \Dxw\Iguana\Registerable
 				acf_add_validation_error('acf[govuk_components_phase_banner_phase]', 'Please provide EITHER a URL or an email address for feedback, but not both.');
 			}
 		}
+	}
+
+	public function addDefaultThemeColours(array $field): array
+	{
+		/**
+		 * @var array{
+		 *   color?: array{
+		 *     palette?: array{
+		 *       theme?: list<array{
+		 *         slug: string,
+		 *         name: string,
+		 *         color: string
+		 *       }>
+		 *     },
+		 *   },
+		 * } $globalSettings
+		 */
+		$globalSettings = wp_get_global_settings();
+		if (isset($globalSettings['color']['palette']['theme'])) {
+			$colours = $globalSettings['color']['palette']['theme'];
+			$choices = [];
+			foreach ($colours as $colour) {
+				$choices[$colour['slug']] = $colour['name'];
+			}
+			$field['choices'] = $choices;
+		}
+		return $field;
 	}
 }

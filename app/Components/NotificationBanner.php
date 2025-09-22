@@ -9,15 +9,43 @@ final class NotificationBanner implements \Dxw\Iguana\Registerable
 	{
 		/** @psalm-suppress HookNotFound */
 		add_action('govuk-components-notification-banner-render', [$this, 'displayNotificationBanner'], 10, 0);
+		add_action('wp_head', [$this, 'enqueueDynamicStyles'], 10, 0);
 	}
 
-
-	public function displayNotificationBanner(): void
+	private function isBannerOn(): bool
 	{
 		/** @var string $show */
 		$show = get_field('govuk_components_notification_banner_show', 'option');
+		return $show === 'off';
+	}
 
-		if ($show === 'off') {
+	public function enqueueDynamicStyles(): void
+	{
+		if ($this->isBannerOn()) {
+			return;
+		}
+
+		/** @var string $borderColour */
+		$borderColour = get_field('govuk_components_notification_banner_border_colour', 'option') ?? '';
+		/** @var string $headingColour */
+		$headingColour = get_field('govuk_components_notification_banner_heading_text_colour', 'option') ?? '';
+
+		$customCSS = "<style>
+  .govuk-notification-banner {
+    background-color: var(--wp--preset--color--" . esc_attr($borderColour) .");
+    border-color: var(--wp--preset--color--" . esc_attr($borderColour) .");
+  }
+  .govuk-notification-banner__title {
+    color: var(--wp--preset--color--" . esc_attr($headingColour) . ");
+  }
+</style>
+";
+		echo $customCSS;
+	}
+
+	public function displayNotificationBanner(): void
+	{
+		if ($this->isBannerOn()) {
 			return;
 		}
 
