@@ -200,6 +200,36 @@ final class Options implements \Dxw\Iguana\Registerable
 						'return_format' => 'Value',
 					],
 					[
+						'key' => 'govuk_components_notification_banner_heading',
+						'label' => 'Heading',
+						'name' => 'govuk_components_notification_banner_heading',
+						'type' => 'text',
+						'prefix' => '',
+						'instructions' => 'Enter the heading for the banner (default: Important).',
+						'required' => 0,
+						'prepend' => '',
+						'append' => '',
+						'maxlength' => '',
+						'readonly' => 0,
+						'disabled' => 0,
+						'default_value' => 'Important',
+						'placeholder' => 'Important',
+						'conditional_logic' => [
+							[
+								[
+									'field' => 'govuk_components_notification_banner_show',
+									'operator' => '!=',
+									'value' => 'off',
+								],
+							],
+						],
+						'wrapper' => [
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						],
+					],
+					[
 						'key' => 'govuk_components_notification_banner_content',
 						'label' => 'Content',
 						'name' => 'govuk_components_notification_banner_content',

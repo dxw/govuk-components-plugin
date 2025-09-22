@@ -21,6 +21,9 @@ final class NotificationBanner implements \Dxw\Iguana\Registerable
 			return;
 		}
 
+		/** @var string $heading*/
+		$heading = get_field('govuk_components_notification_banner_heading', 'option') ?? 'Important';
+
 		/** @var string $content */
 		$content = get_field('govuk_components_notification_banner_content', 'option');
 
@@ -28,7 +31,7 @@ final class NotificationBanner implements \Dxw\Iguana\Registerable
 <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
   <div class="govuk-notification-banner__header">
     <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-      Important
+<?= esc_html($heading); ?>
     </h2>
   </div>
   <div class="govuk-notification-banner__content">
