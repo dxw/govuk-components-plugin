@@ -352,9 +352,18 @@ final class Options implements \Dxw\Iguana\Registerable
 
 	public function validatePhaseBannerOptions(): void
 	{
-		$phase = isset($_POST['acf']['govuk_components_phase_banner_phase']) ? $_POST['acf']['govuk_components_phase_banner_phase'] : '';
-		$feedback_url = isset($_POST['acf']['govuk_components_phase_banner_feedback_url']) ? $_POST['acf']['govuk_components_phase_banner_feedback_url'] : '';
-		$feedback_email = isset($_POST['acf']['govuk_components_phase_banner_feedback_email']) ? $_POST['acf']['govuk_components_phase_banner_feedback_email'] : '';
+		$phase = '';
+		$feedback_url = '';
+		$feedback_email = '';
+		if (isset($_POST['acf']['govuk_components_phase_banner_phase']) && is_string($_POST['acf']['govuk_components_phase_banner_phase'])) {
+			$phase = sanitize_text_field($_POST['acf']['govuk_components_phase_banner_phase']);
+		}
+		if (isset($_POST['acf']['govuk_components_phase_banner_feedback_url']) && is_string($_POST['acf']['govuk_components_phase_banner_feedback_url'])) {
+			$feedback_url = sanitize_text_field($_POST['acf']['govuk_components_phase_banner_feedback_url']);
+		}
+		if (isset($_POST['acf']['govuk_components_phase_banner_feedback_email']) && is_string($_POST['acf']['govuk_components_phase_banner_feedback_email'])) {
+			$feedback_email = sanitize_text_field($_POST['acf']['govuk_components_phase_banner_feedback_email']);
+		}
 
 		if (($phase === 'alpha' || $phase === 'beta')) {
 			if (empty($feedback_url) && empty($feedback_email)) {

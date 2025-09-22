@@ -116,6 +116,11 @@ describe(\GovukComponents\Options::class, function () {
 	});
 
 	describe('->validatePhaseBannerOptions()', function () {
+		beforeEach(function () {
+			allow('sanitize_text_field')->toBecalled()->andRun(function ($val) {
+				return $val;
+			});
+		});
 		context('the POST request contains no relevant information', function () {
 			it('does nothing', function () {
 				global $_POST;
