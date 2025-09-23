@@ -56,14 +56,16 @@ final class NotificationBanner implements \Dxw\Iguana\Registerable
 		$content = get_field('govuk_components_notification_banner_content', 'option');
 
 		?>
-<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-  <div class="govuk-notification-banner__header">
-    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+<div class="govuk-notification-banner__container">
+  <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
 <?= esc_html($heading); ?>
-    </h2>
-  </div>
-  <div class="govuk-notification-banner__content">
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
 <?= wp_kses_post($content); ?>
+    </div>
   </div>
 </div>
 <?php

@@ -100,13 +100,15 @@ HTML;
 						'<p><em>GODZILLA IS APPROACHING!</em></p>'
 					);
 					$expected = <<<HTML
-<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-  <div class="govuk-notification-banner__header">
-    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-Important    </h2>
+<div class="govuk-notification-banner__container">
+  <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+Important      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+<p><em>GODZILLA IS APPROACHING!</em></p>    </div>
   </div>
-  <div class="govuk-notification-banner__content">
-<p><em>GODZILLA IS APPROACHING!</em></p>  </div>
 </div>
 
 HTML;
@@ -124,13 +126,15 @@ HTML;
 						'<p><em>GODZILLA IS APPROACHING!</em></p>'
 					);
 					$expected = <<<HTML
-<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-  <div class="govuk-notification-banner__header">
-    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-Importantish    </h2>
+<div class="govuk-notification-banner__container">
+  <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+Importantish      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+<p><em>GODZILLA IS APPROACHING!</em></p>    </div>
   </div>
-  <div class="govuk-notification-banner__content">
-<p><em>GODZILLA IS APPROACHING!</em></p>  </div>
 </div>
 
 HTML;
