@@ -24,4 +24,5 @@ $registrar->addInstance(new \GovukComponents\Options(
 	$registrar->getInstance(\GovukComponents\BlockController::class)
 ));
 
+$registrar->addInstance(new \GovukComponents\Components\NotificationBanner());
 $registrar->addInstance(new \GovukComponents\Components\PhaseBanner());

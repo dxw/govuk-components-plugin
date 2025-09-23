@@ -22,12 +22,14 @@ describe(\GovukComponents\Options::class, function () {
 			allow('add_action')->toBeCalled();
 			allow('add_filter')->toBeCalled();
 			expect('add_action')->toBeCalled()->times(3);
-			expect('add_filter')->toBeCalled()->times(2);
+			expect('add_filter')->toBeCalled()->times(4);
 			expect('add_action')->toBeCalled()->with('acf/init', [$this->options, 'addPage']);
 			expect('add_action')->toBeCalled()->with('acf/init', [$this->options, 'registerOptions']);
 			expect('add_action')->toBeCalled()->with('acf/init', [$this->options, 'apply']);
 			expect('add_filter')->toBeCalled()->with('acf/validate_save_post', [$this->options, 'validatePhaseBannerOptions']);
 			expect('add_filter')->toBeCalled()->with('plugin_action_links_govuk-components-plugin/index.php', [$this->options, 'addSettingsLink']);
+			expect('add_filter')->toBeCalled()->with('acf/load_field/name=govuk_components_notification_banner_border_colour', [$this->options, 'addDefaultThemeColours']);
+			expect('add_filter')->toBeCalled()->with('acf/load_field/name=govuk_components_notification_banner_heading_text_colour', [$this->options, 'addDefaultThemeColours']);
 
 			$this->options->register();
 		});
@@ -72,7 +74,7 @@ describe(\GovukComponents\Options::class, function () {
 			]);
 			expect($this->blockController)->toReceive('getDefaultBlockOptions')->once();
 			allow('acf_add_local_field_group')->toBeCalled();
-			expect('acf_add_local_field_group')->toBeCalled()->times(2);
+			expect('acf_add_local_field_group')->toBeCalled()->times(3);
 			expect('acf_add_local_field_group')->toBeCalled()->with(Arg::toBeAn('array'));
 			$this->options->registerOptions();
 		});
@@ -114,6 +116,11 @@ describe(\GovukComponents\Options::class, function () {
 	});
 
 	describe('->validatePhaseBannerOptions()', function () {
+		beforeEach(function () {
+			allow('sanitize_text_field')->toBecalled()->andRun(function ($val) {
+				return $val;
+			});
+		});
 		context('the POST request contains no relevant information', function () {
 			it('does nothing', function () {
 				global $_POST;
