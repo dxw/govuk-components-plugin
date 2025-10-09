@@ -26,3 +26,5 @@ $registrar->addInstance(new \GovukComponents\Options(
 
 $registrar->addInstance(new \GovukComponents\Components\NotificationBanner());
 $registrar->addInstance(new \GovukComponents\Components\PhaseBanner());
+
+$registrar->addInstance(new \GovukComponents\Translation());
