@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "govuk-components/pagination",
+  "version": "0.1.0",
+  "title": "GOV.UK Pagination",
+  "category": "govuk-components",
+  "description": "Add pagination to easily navigate between child pages.",
+  "example": {
+    "attributes": {
+      "summary": "Add pagination to easily navigate between child pages",
+      "previewOpen": true
+    }
+  },
+  "icon": "leftright",
+  "attributes": {
+    "prevLabel": {
+      "type": "string",
+      "default": "Previous page title"
+    },
+    "prevUrl": {
+      "type": "string",
+      "default": "#"
+    },
+    "nextLabel": {
+      "type": "string",
+      "default": "Next page title"
+    },
+    "nextUrl": {
+      "type": "string",
+      "default": "#"
+    }
+  },
+  "supports": {
+    "align": false,
+    "html": false,
+    "layout": {
+      "allowEditing": false
+    },
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "padding": false,
+      "blockGap": false
+    }
+  },
+  "textdomain": "govuk-components-plugin",
+  "editorScript": "file:./index.js"
+}
