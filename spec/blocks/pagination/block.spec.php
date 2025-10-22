@@ -16,6 +16,7 @@ describe(\GovukComponents\Blocks\Pagination\Block::class, function () {
 			allow('add_action')->toBeCalled();
 
 			expect('add_action')->toBeCalled()->once()->with('init', [$this->block, 'registerBlock']);
+			expect('add_action')->toBeCalled()->once()->with('wp_enqueue_scripts', [$this->block, 'enqueueBlockStyles']);
 
 			$this->block->init();
 		});
@@ -28,6 +29,17 @@ describe(\GovukComponents\Blocks\Pagination\Block::class, function () {
 			expect('register_block_type')->toBeCalled()->once()->with(Arg::toBeA('string'), Arg::toBeA('array'));
 
 			$this->block->registerBlock();
+		});
+	});
+
+	describe('->enqueueBlockStyles()', function () {
+		it('adds the block styles', function () {
+			allow('wp_enqueue_style')->toBeCalled();
+			allow('plugin_dir_url')->toBeCalled();
+
+			expect('wp_enqueue_style')->toBeCalled()->once()->with(Arg::toBeA('string'), Arg::toBeA('string'));
+
+			$this->block->enqueueBlockStyles();
 		});
 	});
 

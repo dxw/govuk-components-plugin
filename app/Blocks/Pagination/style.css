@@ -1,0 +1,10 @@
+.govuk-pagination {
+    .govuk-pagination__prev {
+        padding: 15px 0;
+    }
+
+    .govuk-pagination__next {
+        padding: 15px 0;
+        margin-top: 0;
+    }
+}

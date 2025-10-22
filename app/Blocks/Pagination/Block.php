@@ -12,6 +12,7 @@ final class Block implements \GovukComponents\Blocks\iBlock
 	public function init(): void
 	{
 		add_action('init', [$this, 'registerBlock'], 10, 0);
+		add_action('wp_enqueue_scripts', [$this, 'enqueueBlockStyles'], 10, 0);
 	}
 
 	public function registerBlock(): void
@@ -23,6 +24,11 @@ final class Block implements \GovukComponents\Blocks\iBlock
 		register_block_type($blockPath, [
 			'render_callback' => '\GovukComponents\Blocks\Pagination\renderPaginationBlock',
 		]);
+	}
+
+	public function enqueueBlockStyles(): void
+	{
+		wp_enqueue_style('govuk-pagination-component', plugin_dir_url(__FILE__) . 'style.css');
 	}
 
 	#[\Override]
