@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Wording above the block editor options has been clarified
 - Ensure accordion rows and headers have unique ID
 - GOV.UK Notification banner component and settings
+- GOV.UK Pagination block for the block editor
 
 ### Removed
 

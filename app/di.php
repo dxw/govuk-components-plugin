@@ -5,6 +5,7 @@ $registrar->addInstance(new \GovukComponents\Blocks\AccordionRow\Block());
 $registrar->addInstance(new \GovukComponents\Blocks\Button\Block());
 $registrar->addInstance(new \GovukComponents\Blocks\Details\Block());
 $registrar->addInstance(new \GovukComponents\Blocks\InsetText\Block());
+$registrar->addInstance(new \GovukComponents\Blocks\Pagination\Block());
 $registrar->addInstance(new \GovukComponents\Blocks\WarningText\Block());
 
 $registrar->addInstance(new \GovukComponents\BlockCategory());
@@ -16,6 +17,7 @@ $registrar->addInstance(new \GovukComponents\BlockController(
 		$registrar->getInstance(\GovukComponents\Blocks\Button\Block::class),
 		$registrar->getInstance(\GovukComponents\Blocks\Details\Block::class),
 		$registrar->getInstance(\GovukComponents\Blocks\InsetText\Block::class),
+		$registrar->getInstance(\GovukComponents\Blocks\Pagination\Block::class),
 		$registrar->getInstance(\GovukComponents\Blocks\WarningText\Block::class)
 	]
 ));
