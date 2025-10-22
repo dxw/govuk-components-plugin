@@ -18,7 +18,7 @@ final class Block implements \GovukComponents\Blocks\iBlock
 	{
 		$blockPath = __DIR__ . '/build';
 
-		require_once __DIR__ . '/Render.php';
+		require_once __DIR__ . '/render.php';
 
 		register_block_type($blockPath, [
 			'render_callback' => '\GovukComponents\Blocks\Pagination\renderPaginationBlock',
