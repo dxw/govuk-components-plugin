@@ -6,6 +6,8 @@ Description: Adds components from the GOV.UK Frontend to the block editor
 Version: 0.4.2
 Author: dxw
 Author URI: https://www.dxw.com
+Text Domain: govuk-components
+Domain Path: /languages
 */
 
 $registrar = require __DIR__.'/app/load.php';
