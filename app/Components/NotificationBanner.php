@@ -63,9 +63,11 @@ final class NotificationBanner implements \Dxw\Iguana\Registerable
 <?= esc_html($heading); ?>
       </h2>
     </div>
+<?php if (!empty(trim($content))): ?>
     <div class="govuk-notification-banner__content">
 <?= wp_kses_post($content); ?>
     </div>
+<?php endif; ?>
   </div>
 </div>
 <?php
