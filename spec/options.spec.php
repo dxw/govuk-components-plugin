@@ -54,8 +54,24 @@ describe(\GovukComponents\Options::class, function () {
 		it('adds the options page', function () {
 			allow('function_exists')->toBeCalled()->andReturn(true);
 			allow('acf_add_options_page')->toBeCalled();
+			allow('apply_filters')->toBeCalled()->andReturn([]);
+
 			expect('acf_add_options_page')->toBeCalled()->once();
 			expect('acf_add_options_page')->toBeCalled()->with(Arg::toBeAn('array'));
+
+			$this->options->addPage();
+		});
+
+		it('applies the filter to the arguments', function () {
+			allow('function_exists')->toBeCalled()->andReturn(true);
+			allow('acf_add_options_page')->toBeCalled();
+			allow('apply_filters')->toBeCalled()->andRun(function ($hook, $args) {
+				$args['capability'] = 'edit_posts';
+				return $args;
+			});
+
+			expect('acf_add_options_page')->toBeCalled()->with(Arg::toContain('edit_posts'));
+
 			$this->options->addPage();
 		});
 	});
