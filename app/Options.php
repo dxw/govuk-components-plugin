@@ -59,7 +59,7 @@ final class Options implements \Dxw\Iguana\Registerable
 				'parent_slug' => 'options-general.php'
 			];
 			/** @var array */
-			$args = apply_filters('govuk_components_plugin_options_page', $args);
+			$args = apply_filters('govuk_components_options_page', $args);
 
 			acf_add_options_page($args);
 		}
