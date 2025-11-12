@@ -18,12 +18,12 @@ final class NotificationBanner implements \Dxw\Iguana\Registerable
 		$show = get_field('govuk_components_notification_banner_show', 'option');
 
 		/** @var bool */
-		return apply_filters('govuk_components_notification_banner_enabled', $show === 'off');
+		return apply_filters('govuk_components_notification_banner_enabled', $show === 'on');
 	}
 
 	public function enqueueDynamicStyles(): void
 	{
-		if ($this->isBannerOn()) {
+		if (!$this->isBannerOn()) {
 			return;
 		}
 
@@ -47,7 +47,7 @@ final class NotificationBanner implements \Dxw\Iguana\Registerable
 
 	public function displayNotificationBanner(): void
 	{
-		if ($this->isBannerOn()) {
+		if (!$this->isBannerOn()) {
 			return;
 		}
 
