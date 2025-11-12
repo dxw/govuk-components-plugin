@@ -16,7 +16,9 @@ final class NotificationBanner implements \Dxw\Iguana\Registerable
 	{
 		/** @var string $show */
 		$show = get_field('govuk_components_notification_banner_show', 'option');
-		return $show === 'off';
+
+		/** @var bool */
+		return apply_filters('govuk_components_notification_banner_enabled', $show === 'off');
 	}
 
 	public function enqueueDynamicStyles(): void
