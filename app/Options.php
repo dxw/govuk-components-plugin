@@ -53,11 +53,15 @@ final class Options implements \Dxw\Iguana\Registerable
 	public function addPage(): void
 	{
 		if (function_exists('acf_add_options_page')) {
-			acf_add_options_page([
+			$args = [
 				'page_title' => 'GOV.UK Components',
 				'capability' => 'edit_users',
 				'parent_slug' => 'options-general.php'
-			]);
+			];
+			/** @var array */
+			$args = apply_filters('govuk_components_plugin_options_page', $args);
+
+			acf_add_options_page($args);
 		}
 	}
 
