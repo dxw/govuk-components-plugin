@@ -27,6 +27,10 @@ describe(\GovukComponents\Components\NotificationBanner::class, function () {
 			allow('esc_attr')->toBeCalled()->andRun(function ($val) {
 				return $val;
 			});
+
+			allow('apply_filters')->toBeCalled()->andRun(function ($hook, $args) {
+				return $args;
+			});
 		});
 		context('The banner is switched off in options', function () {
 			it('does nothing', function () {
@@ -71,6 +75,10 @@ HTML;
 		beforeEach(function () {
 			allow('wp_kses_post')->toBeCalled()->andRun(function ($val) {
 				return $val;
+			});
+
+			allow('apply_filters')->toBeCalled()->andRun(function ($hook, $args) {
+				return $args;
 			});
 		});
 		context('The banner is switched off in options', function () {

@@ -24,7 +24,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Ensure accordion rows and headers have unique ID
 - GOV.UK Notification banner component and settings
 - GOV.UK Pagination block for the block editor
-- Support for filtering the ACF options page arguments through the `govuk_components_plugin_options_page` filter.
+- Support for filtering the ACF options page arguments through the `govuk_components_options_page` filter.
+- Support for customising ACF notification banner settings via the `govuk_components_notification_banner_options`  and `govuk_components_notification_banner_enabled` filters.
 
 ### Removed
 
