@@ -89,6 +89,8 @@ describe(\GovukComponents\Options::class, function () {
 				1 => 'block_2_option_name'
 			]);
 			expect($this->blockController)->toReceive('getDefaultBlockOptions')->once();
+
+			allow('apply_filters')->toBeCalled()->andReturn([]);
 			allow('acf_add_local_field_group')->toBeCalled();
 			expect('acf_add_local_field_group')->toBeCalled()->times(3);
 			expect('acf_add_local_field_group')->toBeCalled()->with(Arg::toBeAn('array'));

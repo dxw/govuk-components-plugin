@@ -190,7 +190,7 @@ final class Options implements \Dxw\Iguana\Registerable
 				'description' => '',
 			]);
 
-			acf_add_local_field_group([
+			$notificationBannerFields = [
 				'key' => 'govuk_components_notification_banner_group',
 				'title' => 'Notification Banner Settings',
 				'fields' => [
@@ -338,7 +338,11 @@ final class Options implements \Dxw\Iguana\Registerable
 				'hide_on_screen' => '',
 				'active' => 1,
 				'description' => 'A field group for global site content.',
-			]);
+			];
+
+			/** @var array */
+			$notificationBannerFields = apply_filters('govuk_components_notification_banner_options', $notificationBannerFields);
+			acf_add_local_field_group($notificationBannerFields);
 
 		endif;
 	}
