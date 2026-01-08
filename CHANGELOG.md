@@ -37,6 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Old Accordion block that requires ACF
 - Old Details block that requires ACF
 - `aria-labelledby` attribute from `<div>` element with no specified role.
+- PHP 7 support
 
 ### Changed
 
