@@ -3,7 +3,7 @@
 	"apiVersion": 3,
 	"name": "govuk-components/warning-text",
 	"version": "0.1.0",
-	"title": "GOV.UK Warning Text",
+	"title": "Warning Text",
 	"category": "govuk-components",
 	"description": "Warn users about serious consequences of an action or inaction, such as legal implications.",
 	"example": {
@@ -17,6 +17,6 @@
         }
     },
     "icon": "warning",
-	"textdomain": "govuk-components-plugin",
+	"textdomain": "govuk-components",
 	"editorScript": "file:./index.js"
 }
