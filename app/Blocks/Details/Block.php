@@ -16,7 +16,30 @@ final class Block implements \GovukComponents\Blocks\iBlock
 
 	public function registerBlock(): void
 	{
-		register_block_type(__DIR__ . '/build');
+		register_block_type(__DIR__ . '/build', [
+			'render_callback' => [$this, 'render']
+		]);
+	}
+
+	public function render(array $attributes, string $content): string
+	{
+		$summary = $attributes['summary'] ?? '';
+		$wrapper_attributes = get_block_wrapper_attributes(['class' => 'govuk-details']);
+
+		ob_start();
+		?>
+		<details <?= $wrapper_attributes ?>>
+			<summary class="govuk-details__summary">
+				<span class="govuk-details__summary-text">
+					<?= wp_kses_post($summary) ?>
+				</span>
+			</summary>
+			<div class="govuk-details__text">
+				<?= $content ?>
+			</div>
+		</details>
+		<?php
+		return (string) ob_get_clean();
 	}
 
 	#[\Override]
