@@ -1,14 +1,24 @@
 import { __ } from '@wordpress/i18n';
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import BlockInspector from './components/InspectorPanels/BlockInspector';
+import { useEffect } from '@wordpress/element';
 
 export default function Edit( { attributes, setAttributes } ) {
 
-	const { showAll } = attributes;
+	const { showAll, accordionControls, accordionClass } = attributes;
+
+	useEffect(() => {
+        if (window.customiseGovukComponents) {
+            setAttributes({
+                accordionControls: window.customiseGovukComponents.accordionControls || '',
+                accordionClass: window.customiseGovukComponents.accordionClass || ''
+            });
+        }
+    }, []);
 
 	const blockProps = useBlockProps(
 		{
-			className:"govuk-accordion",
+			className:accordionClass,
 			id:"accordion-default"
 		}
 	);

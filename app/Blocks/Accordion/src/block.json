@@ -43,7 +43,15 @@
 		"showAll": {
 			"type": "boolean",
 			"default": false
-		}
+		},
+		"accordionControls": {
+            "type": "string",
+            "default": ""
+        },
+        "accordionClass": {
+            "type": "string",
+            "default": "govuk-accordion"
+        }
 	},
 	"providesContext": {
 		"govuk-components/showAll": "showAll"
