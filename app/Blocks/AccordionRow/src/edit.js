@@ -69,9 +69,9 @@ export default function Edit( { attributes, setAttributes, clientId, context } )
 	return (
 		<>
 		<div { ...innerBlocksProps }>
-			<div className="govuk-accordion__section-header">
+			<div className={`govuk-accordion__section-header toast ${myData}`}>
 				<h2 className="govuk-accordion__section-heading">
-					<span className="govuk-accordion__section-button" id={`accordion-default-heading-${index}`}>
+					<span className="govuk-accordion__section-button " id={`accordion-default-heading-${index}`}>
 						<RichText
 							aria-label={ __( 'Write section header' ) }
 							placeholder={ __( 'Write section header…' ) }
