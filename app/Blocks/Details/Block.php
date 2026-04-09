@@ -8,6 +8,13 @@ final class Block implements \GovukComponents\Blocks\iBlock
 
 	protected const OPTION_NAME = 'details';
 
+	private Renderer $renderer;
+
+	public function __construct()
+	{
+		$this->renderer = new Renderer();
+	}
+
 	#[\Override]
 	public function init(): void
 	{
@@ -23,23 +30,7 @@ final class Block implements \GovukComponents\Blocks\iBlock
 
 	public function render(array $attributes, string $content): string
 	{
-		$summary = $attributes['summary'] ?? '';
-		$wrapper_attributes = get_block_wrapper_attributes(['class' => 'govuk-details']);
-
-		ob_start();
-		?>
-		<details <?= $wrapper_attributes ?>>
-			<summary class="govuk-details__summary">
-				<span class="govuk-details__summary-text">
-					<?= wp_kses_post($summary) ?>
-				</span>
-			</summary>
-			<div class="govuk-details__text">
-				<?= $content ?>
-			</div>
-		</details>
-		<?php
-		return (string) ob_get_clean();
+		return $this->renderer->render($attributes, $content);
 	}
 
 	#[\Override]
