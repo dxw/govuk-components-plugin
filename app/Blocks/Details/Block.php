@@ -8,13 +8,6 @@ final class Block implements \GovukComponents\Blocks\iBlock
 
 	protected const OPTION_NAME = 'details';
 
-	private Renderer $renderer;
-
-	public function __construct()
-	{
-		$this->renderer = new Renderer();
-	}
-
 	#[\Override]
 	public function init(): void
 	{
@@ -23,14 +16,7 @@ final class Block implements \GovukComponents\Blocks\iBlock
 
 	public function registerBlock(): void
 	{
-		register_block_type(__DIR__ . '/build', [
-			'render_callback' => [$this, 'render']
-		]);
-	}
-
-	public function render(array $attributes, string $content): string
-	{
-		return $this->renderer->render($attributes, $content);
+		register_block_type(__DIR__ . '/build');
 	}
 
 	#[\Override]
