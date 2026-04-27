@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Breaking changes
 
 - Details block converted from static to dynamic rendering. Class names are output differently, including 'is-layout-flow'
+- Inset Text block converted from static to dynamic rendering
 
 ## [v1.0.0] - 2026-01-07
 
