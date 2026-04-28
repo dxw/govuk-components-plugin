@@ -12,7 +12,9 @@ if (strpos($content, '<div class="govuk-accordion__section"') !== false) {
 	return;
 }
 
+/** @var string $header */
 $header = $attributes['header'] ?? '';
+/** @var int $index */
 $index = $attributes['index'] ?? 0;
 $wrapper_attributes = get_block_wrapper_attributes([
 	'class' => 'govuk-accordion__section',
