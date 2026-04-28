@@ -8,7 +8,7 @@
   \************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"govuk-components/accordion-row","version":"0.1.0","title":"GOV.UK Accordion Row","category":"govuk-components","parent":["govuk-components/accordion"],"description":"A individual row to add to a GOV.UK accordion.","example":{},"supports":{"html":false},"attributes":{"header":{"type":"string","source":"html","selector":".govuk-accordion__section-button"},"isSelected":{"type":"boolean","default":false},"index":{"type":"number"}},"usesContext":["govuk-components/showAll"],"textdomain":"govuk-components-plugin","editorScript":"file:./index.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"govuk-components/accordion-row","version":"0.1.0","title":"GOV.UK Accordion Row","category":"govuk-components","parent":["govuk-components/accordion"],"description":"A individual row to add to a GOV.UK accordion.","example":{},"supports":{"html":false},"attributes":{"header":{"type":"string","source":"html","selector":".govuk-accordion__section-button"},"isSelected":{"type":"boolean","default":false},"index":{"type":"number"}},"usesContext":["govuk-components/showAll"],"textdomain":"govuk-components-plugin","editorScript":"file:./index.js","render":"file:./render.php"}');
 
 /***/ }),
 
