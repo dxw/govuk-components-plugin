@@ -13,7 +13,7 @@ if (strpos($content, '<div data-module="govuk-accordion"') !== false) {
 $wrapper_attributes = get_block_wrapper_attributes([
 	'class' => 'govuk-accordion',
 	'data-module' => 'govuk-accordion',
-	'id' => 'accordion-default', 
+	'id' => 'accordion-default',
 ]);
 ?>
 
