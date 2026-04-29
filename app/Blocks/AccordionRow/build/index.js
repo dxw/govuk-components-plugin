@@ -29,6 +29,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const v1 = {
+  attributes: {
+    header: {
+      type: 'string',
+      source: 'html',
+      selector: '.govuk-accordion__section-button'
+    },
+    isSelected: {
+      type: 'boolean',
+      default: false
+    },
+    index: {
+      type: 'number',
+      default: 0
+    }
+  },
   save: ({
     attributes
   }) => {
@@ -59,6 +74,14 @@ const v1 = {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks.Content, {})
       })]
     });
+  },
+  migrate: (attributes) => {
+    return {
+      ...attributes,
+      header: attributes.header || '',
+      isSelected: attributes.isSelected !== undefined ? attributes.isSelected : false,
+      index: attributes.index !== undefined ? attributes.index : 0
+    };
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (v1);

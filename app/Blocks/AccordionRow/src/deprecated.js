@@ -1,6 +1,21 @@
 import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor';
 
 const v1 = {
+	attributes: {
+		header: {
+			type: 'string',
+			source: 'html',
+			selector: '.govuk-accordion__section-button'
+		},
+		isSelected: {
+			type: 'boolean',
+			default: false
+		},
+		index: {
+			type: 'number',
+			default: 0
+		}
+	},
 	save:({ attributes }) => {
 	const { header, index = 0 } = attributes;
 	const blockProps = useBlockProps.save({
@@ -22,6 +37,14 @@ const v1 = {
 				</div>
 			</div>
 		);
+	},
+	migrate: (attributes) => {
+		return {
+			...attributes,
+			header: attributes.header || '',
+			isSelected: attributes.isSelected !== undefined ? attributes.isSelected : false,
+			index: attributes.index !== undefined ? attributes.index : 0
+		};
 	}
 }
 

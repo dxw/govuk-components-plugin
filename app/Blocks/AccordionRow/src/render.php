@@ -6,7 +6,7 @@
  */
 
 // Check if this is an old block that already has the accordion row markup saved
-if (strpos($content, '<div class="govuk-accordion__section"') !== false) {
+if (strpos($content, '<div') !== false) {
 	// Old block format - content already contains full markup, return as-is
 	echo wp_kses_post($content);
 	return;
