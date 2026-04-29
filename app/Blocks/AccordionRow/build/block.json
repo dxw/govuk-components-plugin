@@ -16,8 +16,7 @@
   "attributes": {
     "header": {
       "type": "string",
-      "source": "html",
-      "selector": ".govuk-accordion__section-button"
+      "default": ""
     },
     "isSelected": {
       "type": "boolean",

@@ -1,7 +1,8 @@
 import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor';
 
 const v1 = {
-	save:() => {
+	save:({ attributes }) => {
+	const { header, index = 0 } = attributes;
 	const blockProps = useBlockProps.save({
 		className: "govuk-accordion__section"
 		});

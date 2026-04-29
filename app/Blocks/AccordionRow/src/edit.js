@@ -25,7 +25,7 @@ const getAllowedBlocks = () =>
 
 export default function Edit( { attributes, setAttributes, clientId, context } ) {
 
-	const { header, isSelected, index } = attributes;
+	const { header, isSelected, index = 0 } = attributes;
 
 	const showAll = context['govuk-components/showAll'];
 

@@ -11,8 +11,6 @@ if (strpos($content, '<div class="govuk-accordion__section"') !== false) {
 	echo wp_kses_post($content);
 	return;
 }
-var_dump($attributes);
-var_dump($content);
 
 /** @var string $header */
 $header = $attributes['header'] ?? '';
