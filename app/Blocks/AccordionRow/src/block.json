@@ -14,18 +14,19 @@
 	"attributes": {
 		"header": {
 			"type": "string",
-			"source": "html",
-			"selector": ".govuk-accordion__section-button"
+			"default": ""
 		},
 		"isSelected": {
 			"type": "boolean",
 			"default": false
 		},
 		"index": {
-			"type": "number"
+			"type": "number",
+			"default": 0
 		}
 	},
 	"usesContext": [ "govuk-components/showAll" ],
 	"textdomain": "govuk-components-plugin",
-	"editorScript": "file:./index.js"
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
 }
