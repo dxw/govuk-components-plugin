@@ -49,5 +49,6 @@
 		"govuk-components/showAll": "showAll"
 	},
 	"textdomain": "govuk-components-plugin",
-	"editorScript": "file:./index.js"
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
 }
