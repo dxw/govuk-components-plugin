@@ -75,7 +75,7 @@ const v1 = {
       })]
     });
   },
-  migrate: (attributes) => {
+  migrate: attributes => {
     return {
       ...attributes,
       header: attributes.header || '',
