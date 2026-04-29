@@ -24,7 +24,8 @@
       "default": false
     },
     "index": {
-      "type": "number"
+      "type": "number",
+      "default": 0
     }
   },
   "usesContext": [
