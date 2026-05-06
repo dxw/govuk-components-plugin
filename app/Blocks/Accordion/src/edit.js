@@ -2,9 +2,13 @@ import { __ } from '@wordpress/i18n';
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import BlockInspector from './components/InspectorPanels/BlockInspector';
 
-export default function Edit( { attributes, setAttributes } ) {
+export default function Edit( { attributes, setAttributes, clientId } ) {
 
-	const { showAll } = attributes;
+	const { showAll, uniqueID } = attributes;
+
+	if (!uniqueID) {
+		setAttributes({ uniqueID: clientId })
+	}
 
 	const blockProps = useBlockProps(
 		{

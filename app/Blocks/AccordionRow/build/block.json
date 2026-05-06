@@ -28,7 +28,8 @@
     }
   },
   "usesContext": [
-    "govuk-components/showAll"
+    "govuk-components/showAll",
+    "govuk-components/uniqueID"
   ],
   "textdomain": "govuk-components-plugin",
   "editorScript": "file:./index.js",

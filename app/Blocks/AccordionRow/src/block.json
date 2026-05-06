@@ -25,7 +25,7 @@
 			"default": 0
 		}
 	},
-	"usesContext": [ "govuk-components/showAll" ],
+	"usesContext": [ "govuk-components/showAll", "govuk-components/uniqueID" ],
 	"textdomain": "govuk-components-plugin",
 	"editorScript": "file:./index.js",
 	"render": "file:./render.php"

@@ -45,10 +45,14 @@
     "showAll": {
       "type": "boolean",
       "default": false
+    },
+    "uniqueID": {
+      "type": "string"
     }
   },
   "providesContext": {
-    "govuk-components/showAll": "showAll"
+    "govuk-components/showAll": "showAll",
+    "govuk-components/uniqueID": "uniqueID"
   },
   "textdomain": "govuk-components-plugin",
   "editorScript": "file:./index.js",
