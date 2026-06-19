@@ -26,7 +26,7 @@ export default function Edit( { attributes, setAttributes, clientId }) {
 		blockProps, 
 		{ 
 			template: TEMPLATE,
-			allowedBlocks: ['core/paragraph', 'core/list'] 
+			allowedBlocks: ['core/paragraph', 'core/list', 'core/image', 'core/heading'] 
 		}
 	);
 
