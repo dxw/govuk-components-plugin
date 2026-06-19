@@ -107,7 +107,7 @@ const TEMPLATE = [["core/paragraph", {
   placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Add text, or type / to choose a block'),
   align: 'left'
 }]];
-const getAllowedBlocks = () => wp.hooks.applyFilters('govukComponents.accordionRow.allowedBlocks', ['core/paragraph', 'core/list', 'core/heading']);
+const getAllowedBlocks = () => wp.hooks.applyFilters('govukComponents.accordionRow.allowedBlocks', ['core/paragraph', 'core/list', 'core/heading', 'core/image']);
 function Edit({
   attributes,
   setAttributes,
@@ -295,7 +295,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"govuk-components/accordion-row","version":"0.1.0","title":"GOV.UK Accordion Row","category":"govuk-components","parent":["govuk-components/accordion"],"description":"A individual row to add to a GOV.UK accordion.","example":{},"supports":{"html":false},"attributes":{"header":{"type":"string","default":""},"isSelected":{"type":"boolean","default":false},"index":{"type":"number","default":0}},"usesContext":["govuk-components/showAll","govuk-components/uniqueID"],"textdomain":"govuk-components-plugin","editorScript":"file:./index.js","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"govuk-components/accordion-row","version":"0.2.0","title":"GOV.UK Accordion Row","category":"govuk-components","parent":["govuk-components/accordion"],"description":"A individual row to add to a GOV.UK accordion.","example":{},"supports":{"html":false},"attributes":{"header":{"type":"string","default":""},"isSelected":{"type":"boolean","default":false},"index":{"type":"number","default":0}},"usesContext":["govuk-components/showAll","govuk-components/uniqueID"],"textdomain":"govuk-components-plugin","editorScript":"file:./index.js","render":"file:./render.php"}');
 
 /***/ }
 
