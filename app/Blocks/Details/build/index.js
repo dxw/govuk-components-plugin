@@ -68,7 +68,7 @@ function UsagePanel() {
   \************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"govuk-components/details","version":"0.1.0","title":"GOV.UK Details","category":"govuk-components","description":"Make a page easier to scan by letting users reveal more detailed information only if they need it.","example":{"attributes":{"summary":"Help with nationality","previewOpen":true},"innerBlocks":[{"name":"core/paragraph","attributes":{"content":"We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."}}]},"icon":"arrow-down","attributes":{"summary":{"type":"string","default":""},"previewOpen":{"type":"boolean","default":false}},"supports":{"align":false,"html":false,"layout":{"allowEditing":false},"spacing":{"margin":["top","bottom"],"padding":false,"blockGap":false}},"textdomain":"govuk-components-plugin","editorScript":"file:./index.js","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"govuk-components/details","version":"0.2.0","title":"GOV.UK Details","category":"govuk-components","description":"Make a page easier to scan by letting users reveal more detailed information only if they need it.","example":{"attributes":{"summary":"Help with nationality","previewOpen":true},"innerBlocks":[{"name":"core/paragraph","attributes":{"content":"We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."}}]},"icon":"arrow-down","attributes":{"summary":{"type":"string","default":""},"previewOpen":{"type":"boolean","default":false}},"supports":{"align":false,"html":false,"layout":{"allowEditing":false},"spacing":{"margin":["top","bottom"],"padding":false,"blockGap":false}},"textdomain":"govuk-components-plugin","editorScript":"file:./index.js","render":"file:./render.php"}');
 
 /***/ }),
 
@@ -170,7 +170,7 @@ function Edit({
   });
   const innerBlockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useInnerBlocksProps)(blockProps, {
     template: TEMPLATE,
-    allowedBlocks: ['core/paragraph', 'core/list']
+    allowedBlocks: ['core/paragraph', 'core/list', 'core/image', 'core/heading']
   });
   const isSelected = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => {
     const {

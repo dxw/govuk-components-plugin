@@ -2,7 +2,7 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "govuk-components/details",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "title": "GOV.UK Details",
   "category": "govuk-components",
   "description": "Make a page easier to scan by letting users reveal more detailed information only if they need it.",
