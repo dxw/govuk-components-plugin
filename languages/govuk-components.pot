@@ -1,0 +1,81 @@
+# Copyright (C) 2025 dxw
+# This file is distributed under the same license as the GOV.UK Components plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: GOV.UK Components 0.4.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/govuk-components\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-08-29T15:48:25+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: govuk-components\n"
+
+#. Plugin Name of the plugin
+#: index.php
+msgid "GOV.UK Components"
+msgstr ""
+
+#. Description of the plugin
+#: index.php
+msgid "Adds components from the GOV.UK Frontend to the block editor"
+msgstr ""
+
+#. Author of the plugin
+#: index.php
+msgid "dxw"
+msgstr ""
+
+#. Author URI of the plugin
+#: index.php
+msgid "https://www.dxw.com"
+msgstr ""
+
+#: app/Blocks/WarningText/build/index.js:62
+#: app/Blocks/WarningText/src/components/InspectorPanels/UsagePanel.js:6
+#: app/Blocks/WarningText/build/index.js:16
+msgid "When to use this component"
+msgstr ""
+
+#: app/Blocks/WarningText/build/index.js:65
+#: app/Blocks/WarningText/src/components/InspectorPanels/UsagePanel.js:8
+#: app/Blocks/WarningText/build/index.js:18
+msgid "Use the warning text component when you need to warn users about something important, such as legal consequences of an action, or lack of action, that they might take."
+msgstr ""
+
+#: app/Blocks/WarningText/build/index.js:70
+#: app/Blocks/WarningText/src/components/InspectorPanels/UsagePanel.js:19
+#: app/Blocks/WarningText/build/index.js:29
+msgid "Learn more about warning text in the GOV.UK Design System"
+msgstr ""
+
+#: app/Blocks/WarningText/build/index.js:117
+#: app/Blocks/WarningText/build/index.js:168
+#: app/Blocks/WarningText/src/edit.js:17
+#: app/Blocks/WarningText/src/save.js:14
+#: app/Blocks/WarningText/build/index.js:51
+#: app/Blocks/WarningText/build/index.js:77
+msgctxt "screen reader prefix"
+msgid "Warning"
+msgstr ""
+
+#: app/Blocks/WarningText/build/index.js:123
+#: app/Blocks/WarningText/src/edit.js:21
+#: app/Blocks/WarningText/build/index.js:55
+msgid "Add text about your warning here."
+msgstr ""
+
+#: app/Blocks/WarningText/build/block.json
+#: app/Blocks/WarningText/src/block.json
+msgctxt "block title"
+msgid "Warning Text"
+msgstr ""
+
+#: app/Blocks/WarningText/build/block.json
+#: app/Blocks/WarningText/src/block.json
+msgctxt "block description"
+msgid "Warn users about serious consequences of an action or inaction, such as legal implications."
+msgstr ""
