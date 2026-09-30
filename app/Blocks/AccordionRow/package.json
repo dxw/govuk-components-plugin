@@ -15,6 +15,6 @@
   "author": "dxw",
   "license": "ISC",
   "devDependencies": {
-    "@wordpress/scripts": "^30.19.0"
+    "@wordpress/scripts": "^36.0.0"
   }
 }
