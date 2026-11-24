@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- PHP platform set to 8.3.6
+
 ### Added
 
 - Explicitly stating which major version of GOVUK Frontend is supported
